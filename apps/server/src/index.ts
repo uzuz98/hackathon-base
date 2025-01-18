@@ -28,7 +28,7 @@ const io = new socketIo(server, {
 // MongoDB connection
 mongoose
   .connect(
-    'mongodb+srv://tsocial627:snTFPuTjwiFvQKQf@cluster0.rtao3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+    'mongodb+srv://tsocial627:_yaPt82gr5-i4Q8@tbeo.6pbqx0h.mongodb.net/myVirtualDatabase?retryWrites=true&w=majority&appName=tbeo',
     {},
   )
   .then(() => {
