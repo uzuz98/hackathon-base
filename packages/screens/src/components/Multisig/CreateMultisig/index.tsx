@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { Button, Icon, Input } from '@repo/ui'
 import SelectChain from './SelectChain'
 import FormMultisig from './FormMultisig'
-import { useWallet } from '@coin98t/wallet-adapter-react'
+import { useWallet } from '@coin98-com/wallet-adapter-react'
 import { factoryContract } from '../../../utils/factory.contract'
 import { toast } from 'sonner'
 

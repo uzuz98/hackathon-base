@@ -10,10 +10,10 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@coin98t/wallet-adapter-coin98": "^0.1.36",
-    "@coin98t/wallet-adapter-ramper": "^0.1.36",
-    "@coin98t/wallet-adapter-react": "^0.1.36",
-    "@coin98t/wallet-adapter-react-ui": "^0.1.36",
+    "@coin98-com/wallet-adapter-coin98": "^0.1.36",
+    "@coin98-com/wallet-adapter-ramper": "^0.1.36",
+    "@coin98-com/wallet-adapter-react": "^0.1.36",
+    "@coin98-com/wallet-adapter-react-ui": "^0.1.36",
     "@repo/constants": "workspace:*",
     "@repo/plugin-sdk": "workspace:*",
     "@repo/screens": "workspace:*",
@@ -22,11 +22,11 @@
     "@tanstack/react-query-devtools": "^5.62.7",
     "axios": "^1.7.9",
     "lodash.get": "^4.4.2",
+    "socket.io-client": "^4.8.1",
     "next": "^14.2.3",
     "next-themes": "^0.4.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "socket.io-client": "^4.8.1"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^14.2.3",

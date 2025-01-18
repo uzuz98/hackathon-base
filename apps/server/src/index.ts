@@ -6,6 +6,7 @@ import { Socket, Server as socketIo } from 'socket.io'
 
 import { KYBER_ABI } from './abi/KYBER_ABI'
 import addressRoutes from './routes/addressRoutes'
+import swapRoutes from './routes/swapRoutes'
 import { decodeInput } from './utils/rawTx'
 
 const corsOptions = {
@@ -38,6 +39,7 @@ mongoose
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use(addressRoutes)
+app.use(swapRoutes)
 
 // Set up Socket.IO connection
 io.on('connection', (socket: Socket) => {
