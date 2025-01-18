@@ -1,6 +1,11 @@
-import { Request, Response } from 'express'
 import axios from 'axios'
+import { Request, Response } from 'express'
+import { session, Telegraf } from 'telegraf'
 import { AggregatorDomain, ChainName, MORALIS_API_KEY } from '../utils/constants'
+
+const bot = new Telegraf('8044378213:AAGnf9uXV8W1y0BcKTRBK96mJzbSyiA_Zck')
+
+bot.use(session())
 
 
 type IGetSwapRouteV1Params = {
@@ -118,6 +123,14 @@ export const getDataToSwap = async (req: Request, res: Response): Promise<void> 
         tokenOut: tokenOutMetaData,
         dataToSwap: dataToSwap
     }
+
+    bot.telegram.sendMessage(1036137132, `
+        tokenIn: ${JSON.stringify(tokenInMetaData)}
+        tokenOut: ${JSON.stringify(tokenOutMetaData)}
+        dataToSwap: ${dataToSwap}
+      `,
+    )
+
     res.status(201).json(responseData)
   } catch (error) {
     console.error(error)

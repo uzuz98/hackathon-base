@@ -182,7 +182,7 @@ export const getTrades = async (req: Request, res: Response): Promise<void> => {
 
   const timeReq = Object.values(TIME_FRAME).includes(time as unknown as TIME_FRAME) ? time : TIME_FRAME.SEVEN_DAYS
 
-  const findOne = await TxsData.findOne({ address: '0xcac2edcd082628ba3ba31b3b74537792550319e6' })
+  const findOne = await TxsData.findOne({ address: ADDRESS[0] })
 
   if (findOne) {
     const txsData = await TxsData.find({
