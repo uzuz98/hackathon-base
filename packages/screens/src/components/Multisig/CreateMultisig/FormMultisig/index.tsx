@@ -5,7 +5,7 @@ import { FormField, Form, FormItem, FormControl, Input, FormMessage, Button, Sep
 import { createPowersSchema, CreatePowersSchemaType } from './schema'
 import { toast } from 'sonner'
 import { factoryContract } from '../../../../utils/factory.contract'
-import { useWallet } from '@coin98t/wallet-adapter-react'
+import { useWallet } from '@coin98-com/wallet-adapter-react'
 import { multisigContract } from '../../../../utils/multisig.contract'
 interface IFormMultisigProps {
   nonce: string
