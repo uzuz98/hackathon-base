@@ -4,6 +4,7 @@
     "preinstall": "npx only-allow pnpm",
     "dev": "turbo dev",
     "dev:web": "turbo dev --filter web",
+    "dev:server": "turbo dev --filter server",
     "build": "turbo build",
     "build:web": "rm -rf apps/web/.next && turbo build --filter=web...",
     "build:packages": "turbo run build --filter=./packages/*",
