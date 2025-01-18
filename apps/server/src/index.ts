@@ -45,26 +45,10 @@ app.use(addressRoutes)
 app.use(swapRoutes)
 app.use(tradeRoutes)
 
-const userSockets = new Map() // Map to track userId and their socketId
-
 // Set up Socket.IO connection
 io.on('connection', (socket: Socket) => {
   console.log('a user connected')
-
-  socket.on('send_message', (msg: string) => {
-    socket.broadcast.emit('recieve_message', msg)
-  })
-
-  socket.on('register', (address: string) => {
-    userSockets.set(address, socket.id)
-    console.log(`User registered: ${address} -> ${socket.id}`)
-  })
-
-  socket.on('subscribe_trade', (address: string) => {
-    subscribe(socket, address, () => {
-      userSockets.delete(address)
-    })
-  })
+  subscribe(socket)
 })
 
 // Serve the homepage route

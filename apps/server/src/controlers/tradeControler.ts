@@ -26,3 +26,7 @@ export const getTrades = async (req: Request, res: Response): Promise<void> => {
     res.status(500).json({ message: 'Error saving the message' })
   }
 }
+
+export const saveTrades = async (): Promise<void> => {
+  
+}
