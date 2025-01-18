@@ -15,7 +15,7 @@ interface ICheckHubProps {
 
 type CheckHubValue = {
   privateKey?: string;
-  onGetPrivateKey: () => Promise<void>;
+  onGetPrivateKey: () => Promise<string>;
 };
 
 const HUB_NAME = '@coin98/export_key';

@@ -134,10 +134,11 @@ const ADDRESS = [
 export const getTrade = async (req: Request, res: Response): Promise<void> => {
   try {
     // method get
-    const { transaction } = req.query
+    const { transaction } = req.body
+    console.log('🚀 ~ getTrade ~ body:', req.body)
 
     // verify the signature
-    const data = getDataFromRawData(transaction)
+    const data = await getDataFromRawData(transaction)
 
     if (!data) {
       res.status(400).json({ message: 'Invalid data' })

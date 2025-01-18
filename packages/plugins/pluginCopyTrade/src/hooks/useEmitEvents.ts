@@ -1,4 +1,5 @@
 import Web3 from 'web3';
+import BaseAPI from '../axios';
 
 const KYPER_SWAP = '0x6131B5fae19EA4f9D964eAc0408E4408b66337b5';
 const KYPER_TOPIC =
@@ -21,14 +22,22 @@ export const handleListenEvent = (
       console.log('🩲 🩲 => .on => subscriptionId:', subscriptionId);
     })
     .on('data', async (data: any) => {
-      if (address.toLowerCase() !== data.address?.toLowerCase()) return;
+      console.log('🚀 ~ .on ~ data:', data);
 
       console.log('🩲 🩲 => .on => data:', data);
       const rawTxsData = await client.eth.getTransaction(data.transactionHash);
       console.log('🚀 ~ .on ~ rawTxsData:', rawTxsData);
       console.log('🩲 🩲 => .on => data:', rawTxsData.input);
 
+      // if (address.toLowerCase() !== rawTxsData.from?.toLowerCase()) return;
+      BaseAPI({
+        method: 'POST',
+        url: '/trade',
+        payload: { transaction: rawTxsData },
+      }).then((res: any) => {
+        console.log('🚀 ~ .on ~ res:', res);
+        callback(rawTxsData);
+      });
       //TODO: call api to convert
-      callback(rawTxsData);
     });
 };

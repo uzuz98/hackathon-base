@@ -4,7 +4,7 @@ import { getTrade, getTrades, getTradeWithAddress } from '../controlers/tradeCon
 
 const router = express.Router()
 
-router.get('/trade', getTrade)
+router.post('/trade', getTrade)
 router.get('/trades', getTrades)
 router.get('/trade-with-address', getTradeWithAddress)
 

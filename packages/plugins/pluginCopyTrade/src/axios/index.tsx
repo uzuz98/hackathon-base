@@ -1,5 +1,5 @@
-import { get } from 'lodash';
 import { AxiosInstance } from 'axios';
+import { get } from 'lodash';
 import { ApiConfig, ErrorResponse, RequestMethod, Response } from '../apis';
 import { BaseInstance } from './instance';
 
@@ -37,9 +37,10 @@ const createApiMethod =
 
     try {
       const response = await api[methodRequest](url, payload);
+      console.log('🚀 ~ payload:', payload);
 
       return {
-        data: get(response, 'data.data', null),
+        data: get(response, 'data', null),
         success: get(response, 'success', false),
         status: get(response, 'status', 500),
       };
