@@ -5,6 +5,7 @@ import mongoose from 'mongoose'
 import { Socket, Server as socketIo } from 'socket.io'
 
 import addressRoutes from './routes/addressRoutes'
+import swapRoutes from './routes/swapRoutes'
 
 const corsOptions = {
   origin: '*',
@@ -36,6 +37,7 @@ mongoose
 app.use(cors(corsOptions))
 app.use(express.json())
 app.use(addressRoutes)
+app.use(swapRoutes)
 
 // Set up Socket.IO connection
 io.on('connection', (socket: Socket) => {
