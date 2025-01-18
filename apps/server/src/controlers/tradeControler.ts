@@ -42,7 +42,7 @@ export const getTrades = async (req: Request, res: Response): Promise<void> => {
       '0xB2713e1BB37a0Fc74777117B3863C905A30edE0A',
       '0x0cad44312eb59d2f407b0c07c1d90817fcd22403',
     ].map(async (address) => {
-      const txsExisted = await TxsData.findOne({ address })
+      const txsExisted = await TxsData.find({ address })
 
       if (txsExisted) {
         return txsExisted

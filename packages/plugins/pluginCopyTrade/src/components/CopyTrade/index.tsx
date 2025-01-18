@@ -1,17 +1,21 @@
 'use client';
 
 import { useWallet } from '@coin98-com/wallet-adapter-react';
+import { Root, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { Button } from '@repo/ui';
 import React, { useEffect } from 'react';
 import BaseAPI from '../../axios';
 import { useCheckHub } from '../../context/checkHubContext';
-import { TabsList, Root, TabsTrigger, TabsContent } from '@radix-ui/react-tabs';
+import { handleListenEvent } from '../../hooks/useEmitEvents';
 
 const CopyTraderItem = () => {
   const { onGetPrivateKey } = useCheckHub();
   const handleConfirmCopyTrade = async () => {
     const privateKey = onGetPrivateKey();
-    console.log('🚀 ~ handleConfirmCopyTrade ~ privateKey:', privateKey);
+    if (!privateKey) return;
+    //TODO: toast error
+
+    handleListenEvent('address', console.log);
   };
 
   return (
@@ -57,7 +61,7 @@ const CopyTrade = () => {
   };
 
   useEffect(() => {
-    BaseAPI({ method: 'GET', url: '/ping' }).then((res) => {
+    BaseAPI({ method: 'GET', url: '/trades' }).then((res) => {
       console.log(res);
     });
     if (!privateKey) {

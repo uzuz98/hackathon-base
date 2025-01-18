@@ -35,7 +35,8 @@
     "axios": "^1.7.9",
     "lodash": "^4.4.2",
     "socket.io-client": "^4.8.1",
-    "@radix-ui/react-tabs": "1.1.2"
+    "@radix-ui/react-tabs": "1.1.2",
+    "web3": "^1.10.0"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^11.1.6",
