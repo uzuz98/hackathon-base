@@ -1,6 +1,7 @@
 import { Request, Response } from 'express'
 import axios from 'axios'
-import { AggregatorDomain, ChainName } from '../utils/constants'
+import { AggregatorDomain, ChainName, MORALIS_API_KEY } from '../utils/constants'
+
 
 type IGetSwapRouteV1Params = {
   tokenIn: {
@@ -12,6 +13,37 @@ type IGetSwapRouteV1Params = {
     decimals: number
   }
   amountIn: number
+}
+
+const getBaseTokenInfo = async (tokenInAddress: string, tokenOutAddress:string) => {
+
+    try {
+        const options = {
+            method: 'GET',
+            url: 'https://deep-index.moralis.io/api/v2.2/erc20/metadata',
+            params: { 
+                chain: 'base',
+                'addresses[0]': tokenInAddress,
+                'addresses[1]': tokenOutAddress
+             },
+            headers: {
+                accept: 'application/json',
+                'X-API-Key': MORALIS_API_KEY
+            }
+            };
+            const data = await axios.request(options)
+            const tokenInMetaData = data.data.find((item:any)=>item.address === tokenInAddress)
+            const tokenOutMetaData = data.data.find((item:any)=>item.address === tokenOutAddress)
+            return {
+                tokenInMetaData: tokenInMetaData,
+                tokenOutMetaData: tokenOutMetaData
+            }
+    } catch (error) {
+        return {
+            tokenInMetaData: null,
+            tokenOutMetaData: null
+        }
+    }
 }
 export async function getSwapRouteV1({ tokenIn, tokenOut, amountIn }: IGetSwapRouteV1Params) {
   const targetChain = ChainName.BASE
@@ -80,7 +112,13 @@ export const getDataToSwap = async (req: Request, res: Response): Promise<void> 
       senderAddress,
       amountIn,
     } as IGetDataToSwapV1Params)
-    res.status(201).json(dataToSwap)
+    const {tokenInMetaData, tokenOutMetaData} = await getBaseTokenInfo(tokenIn.address, tokenOut.address)
+    const responseData = {
+        tokenIn: tokenInMetaData,
+        tokenOut: tokenOutMetaData,
+        dataToSwap: dataToSwap
+    }
+    res.status(201).json(responseData)
   } catch (error) {
     console.error(error)
     res.status(500).json({ message: 'Error saving the message' })

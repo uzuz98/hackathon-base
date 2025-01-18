@@ -60,3 +60,5 @@ export const tokenOut: Token = {
   symbol: 'KNC',
   name: 'KyberNetwork Crystal v2 (PoS)',
 }
+
+export const MORALIS_API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJub25jZSI6IjYyNzdlODBhLTg4M2ItNDE2OS05MTc1LWE1MmI5YTUzZTY3OCIsIm9yZ0lkIjoiMjk1ODk5IiwidXNlcklkIjoiMzAyOTE4IiwidHlwZUlkIjoiM2M2Y2Y5NTYtNWEyYi00MDFlLTk2M2ItYTNmYTQ1Y2IzOGY1IiwidHlwZSI6IlBST0pFQ1QiLCJpYXQiOjE3MzcyMTI2NjIsImV4cCI6NDg5Mjk3MjY2Mn0.hBQvnJqSMcH04ZOwWu9zoEdwI_LvhE1ccLL7TpiaDf4'
