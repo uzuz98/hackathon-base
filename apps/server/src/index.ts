@@ -8,6 +8,7 @@ import { KYBER_ABI } from './abi/KYBER_ABI'
 import addressRoutes from './routes/addressRoutes'
 import swapRoutes from './routes/swapRoutes'
 import { decodeInput } from './utils/rawTx'
+import subscribe from './utils/subscribe'
 
 const corsOptions = {
   origin: '*',
@@ -41,12 +42,25 @@ app.use(express.json())
 app.use(addressRoutes)
 app.use(swapRoutes)
 
+const userSockets = new Map() // Map to track userId and their socketId
+
 // Set up Socket.IO connection
 io.on('connection', (socket: Socket) => {
   console.log('a user connected')
 
   socket.on('send_message', (msg: string) => {
     socket.broadcast.emit('recieve_message', msg)
+  })
+
+  socket.on('register', (address: string) => {
+    userSockets.set(address, socket.id)
+    console.log(`User registered: ${address} -> ${socket.id}`)
+  })
+
+  socket.on('subscribe_trade', (address: string) => {
+    subscribe(socket, address, () => {
+      userSockets.delete(address)
+    })
   })
 })
 

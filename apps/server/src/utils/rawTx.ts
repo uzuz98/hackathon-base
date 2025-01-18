@@ -128,7 +128,8 @@ export const decodeInput = (abi: any[], data: string) => {
   )
 
   if (!methodAbi) {
-    throw new Error('No matching function signature found in ABI.')
+    console.log('No matching function signature found in ABI.')
+    return null
   }
 
   const decodedParams = web3.eth.abi.decodeParameters(methodAbi.inputs, data.slice(10))
@@ -136,6 +137,70 @@ export const decodeInput = (abi: any[], data: string) => {
   return {
     functionName: methodAbi.name,
     params: decodedParams,
+  }
+}
+
+export const getDataFromRawData = async (transaction: any) => {
+  try {
+    const data = transaction.input
+    const txs = transaction.hash
+    try {
+      const result = decodeInput(KYBER_ABI, data)
+
+      if (!result) {
+        console.log('No matching function signature found in ABI.')
+        return null
+      }
+
+      // console.log("Function Name:", result.functionName);
+      // console.log(Object.keys(result.params));
+      const params = result.params
+      const execution = params.execution || params.desc
+
+      // from the execution, get desc
+      const desc = params.desc || (execution as any).desc
+      // from desc, get the srcToken, dstToken, dstReceiver, amount(srcToken), minReturnAmount(dstToken)
+      const { srcToken, dstToken, dstReceiver, amount, minReturnAmount } = desc
+
+      let dstTokenAdd = dstToken,
+        returnAmount = minReturnAmount,
+        srcTokenAdd = srcToken,
+        amountIn = amount
+      if (dstToken === INTERNAL_TRANSACTION) {
+        const internalTransactions = await getInternalTransactionByHash(txs)
+        const fromToken = internalTransactions.result[0].from
+        dstTokenAdd = fromToken
+        const value = internalTransactions.result[1].value
+        returnAmount = value
+        await new Promise((resolve) => setTimeout(resolve, 200))
+      }
+
+      if (srcToken === INTERNAL_TRANSACTION) {
+        const internalTransactions = await getInternalTransactionByHash(txs)
+        const toToken = internalTransactions.result[1].to
+        srcTokenAdd = toToken
+        const value = internalTransactions.result[0].value
+        amountIn = value
+        await new Promise((resolve) => setTimeout(resolve, 200))
+      }
+
+      return {
+        functionName: result.functionName,
+        srcToken: srcTokenAdd,
+        dstToken: dstTokenAdd,
+        dstReceiver,
+        amountIn,
+        returnAmount,
+        hash: txs,
+        timestamp: transaction.timeStamp,
+      }
+    } catch (error: any) {
+      console.log('Error decoding input data:', error.message)
+      return null
+    }
+  } catch (error: any) {
+    console.log('Error decoding input data:', error.message)
+    return null
   }
 }
 
@@ -156,59 +221,70 @@ const parseRawData = async (timeframe: number, address: string): Promise<RawData
   let dataFinal = []
   for (let i = 0; i < kyberTransactions.length; i++) {
     const transaction = kyberTransactions[i]
-    try {
-      const data = transaction.input
-      const txs = transaction.hash
-      try {
-        const result = decodeInput(KYBER_ABI, data)
-        // console.log("Function Name:", result.functionName);
-        // console.log(Object.keys(result.params));
-        const params = result.params
-        const execution = params.execution || params.desc
 
-        // from the execution, get desc
-        const desc = params.desc || (execution as any).desc
-        // from desc, get the srcToken, dstToken, dstReceiver, amount(srcToken), minReturnAmount(dstToken)
-        const { srcToken, dstToken, dstReceiver, amount, minReturnAmount } = desc
+    const dataTx = await getDataFromRawData(transaction)
 
-        let dstTokenAdd = dstToken,
-          returnAmount = minReturnAmount,
-          srcTokenAdd = srcToken,
-          amountIn = amount
-        if (dstToken === INTERNAL_TRANSACTION) {
-          const internalTransactions = await getInternalTransactionByHash(txs)
-          const fromToken = internalTransactions.result[0].from
-          dstTokenAdd = fromToken
-          const value = internalTransactions.result[1].value
-          returnAmount = value
-          await new Promise((resolve) => setTimeout(resolve, 200))
-        }
-
-        if (srcToken === INTERNAL_TRANSACTION) {
-          const internalTransactions = await getInternalTransactionByHash(txs)
-          const toToken = internalTransactions.result[1].to
-          srcTokenAdd = toToken
-          const value = internalTransactions.result[0].value
-          amountIn = value
-          await new Promise((resolve) => setTimeout(resolve, 200))
-        }
-
-        dataFinal.push({
-          functionName: result.functionName,
-          srcToken: srcTokenAdd,
-          dstToken: dstTokenAdd,
-          dstReceiver,
-          amountIn,
-          returnAmount,
-          hash: txs,
-          timestamp: transaction.timeStamp,
-        })
-      } catch (error: any) {
-        console.error('Error decoding input data:', error.message)
-      }
-    } catch (error: any) {
-      console.error('Error decoding input data:', error.message)
+    if (dataTx) {
+      dataFinal.push(dataTx)
     }
+
+    // try {
+    //   const data = transaction.input
+    //   const txs = transaction.hash
+    //   try {
+    //     const result = decodeInput(KYBER_ABI, data)
+
+    //     if (!result) {
+    //       throw new Error('No matching function signature found in ABI.')
+    //     }
+    //     // console.log("Function Name:", result.functionName);
+    //     // console.log(Object.keys(result.params));
+    //     const params = result.params
+    //     const execution = params.execution || params.desc
+
+    //     // from the execution, get desc
+    //     const desc = params.desc || (execution as any).desc
+    //     // from desc, get the srcToken, dstToken, dstReceiver, amount(srcToken), minReturnAmount(dstToken)
+    //     const { srcToken, dstToken, dstReceiver, amount, minReturnAmount } = desc
+
+    //     let dstTokenAdd = dstToken,
+    //       returnAmount = minReturnAmount,
+    //       srcTokenAdd = srcToken,
+    //       amountIn = amount
+    //     if (dstToken === INTERNAL_TRANSACTION) {
+    //       const internalTransactions = await getInternalTransactionByHash(txs)
+    //       const fromToken = internalTransactions.result[0].from
+    //       dstTokenAdd = fromToken
+    //       const value = internalTransactions.result[1].value
+    //       returnAmount = value
+    //       await new Promise((resolve) => setTimeout(resolve, 200))
+    //     }
+
+    //     if (srcToken === INTERNAL_TRANSACTION) {
+    //       const internalTransactions = await getInternalTransactionByHash(txs)
+    //       const toToken = internalTransactions.result[1].to
+    //       srcTokenAdd = toToken
+    //       const value = internalTransactions.result[0].value
+    //       amountIn = value
+    //       await new Promise((resolve) => setTimeout(resolve, 200))
+    //     }
+
+    //     dataFinal.push({
+    //       functionName: result.functionName,
+    //       srcToken: srcTokenAdd,
+    //       dstToken: dstTokenAdd,
+    //       dstReceiver,
+    //       amountIn,
+    //       returnAmount,
+    //       hash: txs,
+    //       timestamp: transaction.timeStamp,
+    //     })
+    //   } catch (error: any) {
+    //     console.error('Error decoding input data:', error.message)
+    //   }
+    // } catch (error: any) {
+    //   console.error('Error decoding input data:', error.message)
+    // }
   }
   return dataFinal
 }
