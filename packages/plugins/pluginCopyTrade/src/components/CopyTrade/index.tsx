@@ -1,6 +1,9 @@
 'use client';
 
-import React from 'react';
+import { useWallet } from '@coin98t/wallet-adapter-react';
+import React, { useEffect } from 'react';
+import { useKeyStore } from '../../stores/privateKeyStore';
+import { useCheckHub } from '../../context/checkHubContext';
 
 const CopyTraderItem = () => {
   return (
@@ -12,24 +15,23 @@ const CopyTraderItem = () => {
 };
 
 const CopyTrade = () => {
-  // const { address } = useWallet();
-  // const { privateKey } = useKeyStore();
-  // useCheckHub();
+  const { address } = useWallet();
+  const { privateKey } = useKeyStore();
+  useCheckHub();
 
-  // const handleSwap = async () => {
-  //   const web3 = new Web3('');
-  //   const tx = {};
-  //   const signedTx = await web3.eth.accounts.signTransaction(tx, privateKey);
+  const handleSwap = async () => {
+    // const web3 = new Web3('');
+    // const tx = {};
+    // const signedTx = await web3.eth.accounts.signTransaction(tx, privateKey);
+    // await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+  };
 
-  //   await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
-  // };
-
-  // useEffect(() => {
-  //   if (!privateKey) {
-  //     return;
-  //   }
-  //   handleSwap();
-  // }, [privateKey]);
+  useEffect(() => {
+    if (!privateKey) {
+      return;
+    }
+    handleSwap();
+  }, [privateKey]);
 
   return (
     <div>

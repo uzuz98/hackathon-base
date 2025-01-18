@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic'
 export const chainsSupported = [BLOCKCHAINS_DATA.solana, BLOCKCHAINS_DATA.ethereum]
 
 export const walletsSupported = [Coin98WalletAdapter, RamperWalletAdapter]
-export const defaultChains: ChainInfo[] = ['solana', 'viction', 'matic']
+export const defaultChains: ChainInfo[] = ['solana', 'tomo', 'matic']
 export const DynamicWalletModalC98 = dynamic(
   async () => (await import('@coin98t/wallet-adapter-react-ui')).WalletModalC98,
   { ssr: false },
