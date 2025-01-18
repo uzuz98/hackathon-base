@@ -289,12 +289,14 @@ const parseRawData = async (timeframe: number, address: string): Promise<RawData
   return dataFinal
 }
 
-export const getData = async (): Promise<{
+export const getData = async (
+  time: TIME_FRAME,
+): Promise<{
   txs: RawData[]
   roi: number
 } | null> => {
   try {
-    const dataRaw = await parseRawData(TIME_FRAME.THIRTY_DAYS, ADDRESS_TEST)
+    const dataRaw = await parseRawData(time, ADDRESS_TEST)
     // let unrealizedProfit = 0
     let realizedProfit = 0
     let tempDataRaw = dataRaw || []
