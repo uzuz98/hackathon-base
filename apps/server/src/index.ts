@@ -4,7 +4,9 @@ import http from 'http'
 import mongoose from 'mongoose'
 import { Socket, Server as socketIo } from 'socket.io'
 
+import { KYBER_ABI } from './abi/KYBER_ABI'
 import addressRoutes from './routes/addressRoutes'
+import { decodeInput } from './utils/rawTx'
 
 const corsOptions = {
   origin: '*',
@@ -40,6 +42,7 @@ app.use(addressRoutes)
 // Set up Socket.IO connection
 io.on('connection', (socket: Socket) => {
   console.log('a user connected')
+
   socket.on('send_message', (msg: string) => {
     socket.broadcast.emit('recieve_message', msg)
   })
@@ -47,6 +50,8 @@ io.on('connection', (socket: Socket) => {
 
 // Serve the homepage route
 app.get('/ping', (req, res) => {
+  const result = decodeInput(KYBER_ABI, '')
+  console.log('🚀 ~ file: index.ts:54 ~ result:', result)
   res.send('Hello, World!')
 })
 
