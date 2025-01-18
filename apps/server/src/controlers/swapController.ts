@@ -35,13 +35,15 @@ const getBaseTokenInfo = async (tokenInAddress: string, tokenOutAddress: string)
       },
     }
     const data = await axios.request(options)
-    const tokenInMetaData = data.data.find((item: any) => item.address === tokenInAddress)
-    const tokenOutMetaData = data.data.find((item: any) => item.address === tokenOutAddress)
+    const tokenInMetaData = data.data.find((item: any) => item.address.toLocaleLowerCase() === tokenInAddress.toLocaleLowerCase())
+    const tokenOutMetaData = data.data.find((item: any) => item.address.toLocaleLowerCase() === tokenOutAddress.toLocaleLowerCase())
+    console.log(data)
     return {
       tokenInMetaData: tokenInMetaData,
       tokenOutMetaData: tokenOutMetaData,
     }
   } catch (error) {
+    console.error(error)
     return {
       tokenInMetaData: null,
       tokenOutMetaData: null,
@@ -123,6 +125,7 @@ export const getDataToSwap = async (req: Request, res: Response): Promise<void> 
       senderAddress,
       amountIn,
     } as IGetDataToSwapV1Params)
+    delete dataToSwap.data
     const responseData = {
       tokenIn: tokenInMetaData,
       tokenOut: tokenOutMetaData,
