@@ -1,7 +1,12 @@
 import Web3 from 'web3'
 
+// import pancakeSwapAbi from '../abi/pancakeSwapABI'
+
 // Initialize Web3
 const web3 = new Web3()
+
+// PancakeSwap Router contract address
+// const routerAddress = '0x10ED43C718714eb63d5aA57B78B54704E256024E'; // PancakeSwap V2 Router
 
 // Function to validate a signature
 export const validateSignature = (hubName: string, signature: string, expectedAddress: string): boolean => {

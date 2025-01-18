@@ -4,8 +4,13 @@ import http from 'http'
 import mongoose from 'mongoose'
 import { Socket, Server as socketIo } from 'socket.io'
 
+import { KYBER_ABI } from './abi/KYBER_ABI'
+import { decodeInput } from './utils/rawTx'
+import subscribe from './utils/subscribe'
+
 import addressRoutes from './routes/addressRoutes'
 import swapRoutes from './routes/swapRoutes'
+import tradeRoutes from './routes/tradeRoutes'
 
 const corsOptions = {
   origin: '*',
@@ -38,17 +43,34 @@ app.use(cors(corsOptions))
 app.use(express.json())
 app.use(addressRoutes)
 app.use(swapRoutes)
+app.use(tradeRoutes)
+
+const userSockets = new Map() // Map to track userId and their socketId
 
 // Set up Socket.IO connection
 io.on('connection', (socket: Socket) => {
   console.log('a user connected')
+
   socket.on('send_message', (msg: string) => {
     socket.broadcast.emit('recieve_message', msg)
+  })
+
+  socket.on('register', (address: string) => {
+    userSockets.set(address, socket.id)
+    console.log(`User registered: ${address} -> ${socket.id}`)
+  })
+
+  socket.on('subscribe_trade', (address: string) => {
+    subscribe(socket, address, () => {
+      userSockets.delete(address)
+    })
   })
 })
 
 // Serve the homepage route
 app.get('/ping', (req, res) => {
+  const result = decodeInput(KYBER_ABI, '')
+  console.log('🚀 ~ file: index.ts:54 ~ result:', result)
   res.send('Hello, World!')
 })
 

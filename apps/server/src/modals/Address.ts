@@ -10,6 +10,11 @@ const addressSchema: Schema = new Schema({
     type: String,
     required: true,
   },
+  sig: {
+    type: String,
+    unique: true,
+    required: true,
+  },
   timestamp: {
     type: Date,
     default: Date.now,

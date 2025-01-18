@@ -21,11 +21,17 @@ export const saveAddress = async (req: Request, res: Response): Promise<void> =>
       return
     }
 
-    const newAddress: IAddress = new Address({
-      address,
-    })
+    const addressExisted = await Address.findOne({ sig })
 
-    await newAddress.save()
+    if (!addressExisted) {
+      const newAddress: IAddress = new Address({
+        address,
+        sig,
+      })
+
+      await newAddress.save()
+    }
+
     res.status(201).json(true)
   } catch (error) {
     console.error(error)

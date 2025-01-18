@@ -36,7 +36,12 @@ export default function Chat() {
       setMessages((prev) => [...prev, { sender: 'Other', text: data }])
     }
 
+    const handleIncomingNewBlock = (data: any) => {
+      console.debug('🚀 ~ file: Chat.tsx:40 ~ data:', data)
+    }
+
     socket.on('recieve_message', handleIncomingMessage)
+    socket.on('newBlock', handleIncomingNewBlock)
 
     return () => {
       socket.off('message', handleIncomingMessage)
