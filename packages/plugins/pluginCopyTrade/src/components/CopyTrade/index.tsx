@@ -106,7 +106,7 @@ const CopyTrade = () => {
       },
     }).then((res) => {
       //TODO: check
-      setTradingHistories((prev) => [...prev, res as any]);
+      setTradingHistories((prev) => [res.data as any, ...prev]);
     });
   };
 
@@ -197,81 +197,9 @@ const TradingHistory = ({ tradingHistories }: { tradingHistories: any[] }) => {
     <>
       <div className="text-xl font-bold mb-4">Trader List:</div>
       <div className="flex flex-col gap-4">
-        {Array(4)
-          .fill({
-            tokenIn: {
-              address: '0xc55e93c62874d8100dbd2dfe307edc1036ad5434',
-              address_label: null,
-              name: 'Moo BIFI',
-              symbol: 'mooBIFI',
-              decimals: '18',
-              logo: 'https://logo.moralis.io/0x2105_0xc55e93c62874d8100dbd2dfe307edc1036ad5434_2485da82a00c70ab0434b2037f6be524.png',
-              logo_hash: null,
-              thumbnail:
-                'https://logo.moralis.io/0x2105_0xc55e93c62874d8100dbd2dfe307edc1036ad5434_2485da82a00c70ab0434b2037f6be524.png',
-              total_supply: '719189425116169634948',
-              total_supply_formatted: '719.189425116169634948',
-              fully_diluted_valuation: '0',
-              block_number: '5523491',
-              validated: 1,
-              created_at: '2023-10-20T21:12:09.000Z',
-              possible_spam: false,
-              verified_contract: true,
-              categories: [],
-              links: {
-                moralis:
-                  'https://moralis.com/chain/base/token/price/0xc55e93c62874d8100dbd2dfe307edc1036ad5434',
-              },
-              security_score: 43,
-              description: null,
-            },
-            tokenOut: {
-              address: '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913',
-              address_label: null,
-              name: 'USD Coin',
-              symbol: 'USDC',
-              decimals: '6',
-              logo: 'https://logo.moralis.io/0x2105_0x833589fcd6edb6e08f4c7c32d4f71b54bda02913_0453dd33499ce791c760a31264256b10.png',
-              logo_hash: null,
-              thumbnail:
-                'https://logo.moralis.io/0x2105_0x833589fcd6edb6e08f4c7c32d4f71b54bda02913_0453dd33499ce791c760a31264256b10.png',
-              total_supply: '3482792091274470',
-              total_supply_formatted: '3482792091.27447',
-              fully_diluted_valuation: '3477215917.61',
-              block_number: '2797221',
-              validated: 1,
-              created_at: '2023-08-18T18:36:29.000Z',
-              possible_spam: false,
-              verified_contract: true,
-              categories: [],
-              links: {
-                moralis:
-                  'https://moralis.com/chain/base/token/price/0x833589fcd6edb6e08f4c7c32d4f71b54bda02913',
-              },
-              security_score: null,
-              description: null,
-            },
-            dataToSwap: {
-              amountIn: '200000000000000000000',
-              amountInUsd: '0',
-              amountOut: '69450086727',
-              amountOutUsd: '69789.55745818304',
-              gas: '343000',
-              gasUsd: '0.00804962362423482',
-              additionalCostUsd: '0',
-              additionalCostMessage: '',
-              outputChange: {
-                amount: '0',
-                percent: 0,
-                level: 0,
-              },
-              routerAddress: '0x6131B5fae19EA4f9D964eAc0408E4408b66337b5',
-              transactionValue: '0',
-            },
-          })
-          .map((item, index) => (
-            <TradingHistoryItem key={index} item={item} />
-          ))}
+        {tradingHistories.map((item, index) => (
+          <TradingHistoryItem key={index} item={item} />
+        ))}
       </div>
     </>
   );

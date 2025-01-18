@@ -3,7 +3,7 @@ import BaseAPI from '../axios';
 
 const KYPER_SWAP = '0x6131B5fae19EA4f9D964eAc0408E4408b66337b5';
 const KYPER_TOPIC =
-  '0xddac40937f35385a34f721af292e5a83fc5b840f722bff57c2fc71adba708c48';
+  '0x095e66fa4dd6a6f7b43fb8444a7bd0edb870508c7abf639bc216efb0bcff9779';
 
 export const handleListenEvent = (
   address: string = '',
@@ -22,9 +22,15 @@ export const handleListenEvent = (
       console.log('🩲 🩲 => .on => subscriptionId:', subscriptionId);
     })
     .on('data', async (data: any) => {
-      const rawTxsData = await client.eth.getTransaction(data.transactionHash);
+      const rawTxsData = await waiter(() =>
+        client.eth.getTransaction(data.transactionHash)
+      );
+      console.log('🚀 ~ .on ~ rawTxsData:', rawTxsData);
 
-      // if (address.toLowerCase() !== rawTxsData.from?.toLowerCase()) return;
+      if (address.toLowerCase() !== rawTxsData.from?.toLowerCase()) return;
+
+      await sleep(2000);
+
       BaseAPI({
         method: 'POST',
         url: '/trade',
@@ -33,6 +39,43 @@ export const handleListenEvent = (
         if (!res.data) return;
         callback(res.data);
       });
-      //TODO: call api to convert
     });
+};
+
+export const sleep = (ms: number) =>
+  new Promise((resolve) => setTimeout(resolve, ms));
+
+export const waiter = async <T>(
+  callback: () => Promise<T>,
+  msTimeout = 30000,
+  msInterval = 1000,
+  errorMessage = '',
+  isCatchErrorInterval = true
+): Promise<T> => {
+  const now = Date.now();
+
+  return new Promise<T>((resolve, reject) => {
+    const timer = setInterval(async () => {
+      try {
+        const isExpired = Date.now() - now >= msTimeout;
+
+        if (isExpired) {
+          timer && clearInterval(timer);
+          reject(new Error(errorMessage || 'Timeout when waiting'));
+        }
+
+        const result = await callback();
+
+        if (result) {
+          timer && clearInterval(timer);
+          resolve(result);
+        }
+      } catch (error: any) {
+        if (isCatchErrorInterval) {
+          clearInterval(timer);
+          reject(new Error(error.message || 'Error when waiting'));
+        }
+      }
+    }, msInterval);
+  });
 };

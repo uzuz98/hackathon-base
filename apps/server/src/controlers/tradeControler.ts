@@ -135,7 +135,6 @@ export const getTrade = async (req: Request, res: Response): Promise<void> => {
   try {
     // method get
     const { transaction } = req.body
-    console.log('🚀 ~ getTrade ~ body:', req)
 
     // verify the signature
     const data = await getDataFromRawData(transaction)
@@ -196,7 +195,6 @@ export const getTrades = async (req: Request, res: Response): Promise<void> => {
     const data = await Promise.all(
       ADDRESS.map(async (address) => {
         const data = await getData(address, timeReq as TIME_FRAME)
-        console.log('🚀 ~ file: tradeControler.ts:66 ~ data:', data)
 
         if (data) {
           const newTxs: ITxsData = new TxsData({

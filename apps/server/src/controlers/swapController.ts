@@ -35,9 +35,12 @@ const getBaseTokenInfo = async (tokenInAddress: string, tokenOutAddress: string)
       },
     }
     const data = await axios.request(options)
-    const tokenInMetaData = data.data.find((item: any) => item.address.toLocaleLowerCase() === tokenInAddress.toLocaleLowerCase())
-    const tokenOutMetaData = data.data.find((item: any) => item.address.toLocaleLowerCase() === tokenOutAddress.toLocaleLowerCase())
-    console.log(data)
+    const tokenInMetaData = data.data.find(
+      (item: any) => item.address.toLocaleLowerCase() === tokenInAddress.toLocaleLowerCase(),
+    )
+    const tokenOutMetaData = data.data.find(
+      (item: any) => item.address.toLocaleLowerCase() === tokenOutAddress.toLocaleLowerCase(),
+    )
     return {
       tokenInMetaData: tokenInMetaData,
       tokenOutMetaData: tokenOutMetaData,
@@ -64,8 +67,8 @@ export async function getSwapRouteV1({ tokenIn, tokenOut, amountIn }: IGetSwapRo
 
     const { data } = await axios.get(AggregatorDomain + targetPath, targetPathConfig)
 
-    console.log('[V1] GET Response:')
-    console.log(data)
+    // console.log('[V1] GET Response:')
+    // console.log(data)
     return data.data
   } catch (error) {
     console.log(error)
