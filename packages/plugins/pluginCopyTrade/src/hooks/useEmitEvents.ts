@@ -7,7 +7,7 @@ const KYPER_TOPIC =
 
 export const handleListenEvent = (
   address: string = '',
-  callback: (rawTxsData: any) => void
+  callback: (data: any) => void
 ) => {
   const client = new Web3(
     new Web3.providers.WebsocketProvider('wss://base.gateway.tenderly.co')
@@ -22,12 +22,7 @@ export const handleListenEvent = (
       console.log('🩲 🩲 => .on => subscriptionId:', subscriptionId);
     })
     .on('data', async (data: any) => {
-      console.log('🚀 ~ .on ~ data:', data);
-
-      console.log('🩲 🩲 => .on => data:', data);
       const rawTxsData = await client.eth.getTransaction(data.transactionHash);
-      console.log('🚀 ~ .on ~ rawTxsData:', rawTxsData);
-      console.log('🩲 🩲 => .on => data:', rawTxsData.input);
 
       // if (address.toLowerCase() !== rawTxsData.from?.toLowerCase()) return;
       BaseAPI({
@@ -35,8 +30,8 @@ export const handleListenEvent = (
         url: '/trade',
         payload: { transaction: rawTxsData },
       }).then((res: any) => {
-        console.log('🚀 ~ .on ~ res:', res);
-        callback(rawTxsData);
+        if (!res.data) return;
+        callback(res.data);
       });
       //TODO: call api to convert
     });

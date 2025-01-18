@@ -79,21 +79,30 @@ const CopyTrade = () => {
   const [traders, setTraders] = React.useState<any[]>([]);
   const [tradingHistories, setTradingHistories] = React.useState<any[]>([]);
 
+  // {
+  //     "functionName": "swap",
+  //     "srcToken": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+  //     "dstToken": "0xb0505e5a99abd03d94a1169e638B78EDfEd26ea4",
+  //     "dstReceiver": "0xE2906A68908C953B86CBc2D4Cc83913AefAFe117",
+  //     "amountIn": "2000000000",
+  //     "returnAmount": "412723544247991397381",
+  //     "hash": "0xc2cd67ccbd8e88b641a1fc84f8f2b259421c0154154af6c04656c234fda3f0a2"
+  // }
+
   const onExecuteTrade = async (event: any) => {
+    console.log('🚀 ~ onExecuteTrade ~ event:', event);
     BaseAPI({
       method: 'POST',
       url: '/swap',
       payload: {
         tokenIn: {
-          address: '0xc55e93c62874d8100dbd2dfe307edc1036ad5434',
-          decimals: 18,
+          address: get(event, 'srcToken'),
         },
         tokenOut: {
-          address: '0x833589fcd6edb6e08f4c7c32d4f71b54bda02913',
-          decimals: 6,
+          address: get(event, 'dstToken'),
         },
-        amountIn: 200,
-        senderAddress: '0x09D0A2963D27B27C234b3637C528eCB9356B8867',
+        amountIn: event.amountIn,
+        senderAddress: address,
       },
     }).then((res) => {
       //TODO: check
@@ -110,7 +119,6 @@ const CopyTrade = () => {
       return;
     }
   }, [privateKey]);
-  console.log('🚀 ~ CopyTrade ~ traders:', traders);
 
   return (
     <div>
@@ -129,7 +137,7 @@ const CopyTrade = () => {
               <CopyTraderItem
                 key={item}
                 item={item}
-                callback={() => onExecuteTrade(item)}
+                callback={onExecuteTrade}
               />
             ))}
           </div>

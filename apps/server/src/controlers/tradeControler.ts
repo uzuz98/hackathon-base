@@ -135,7 +135,7 @@ export const getTrade = async (req: Request, res: Response): Promise<void> => {
   try {
     // method get
     const { transaction } = req.body
-    console.log('🚀 ~ getTrade ~ body:', req.body)
+    console.log('🚀 ~ getTrade ~ body:', req)
 
     // verify the signature
     const data = await getDataFromRawData(transaction)

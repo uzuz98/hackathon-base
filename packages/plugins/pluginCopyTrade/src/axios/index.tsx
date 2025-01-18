@@ -12,10 +12,8 @@ export const getDataError = (error: any): ErrorResponse => ({
 // Base API creation function
 const createBaseAPI = (api: AxiosInstance) => {
   api.interceptors.request.use(async (config) => {
-    const accessToken = '';
-    if (accessToken) {
-      config.headers.Authorization = `Bearer ${accessToken}`;
-    }
+    config.headers.Accept = 'application/json';
+    config.headers['content-type'] = 'application/json';
 
     return config;
   });
