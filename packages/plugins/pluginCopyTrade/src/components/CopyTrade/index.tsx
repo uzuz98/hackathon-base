@@ -8,6 +8,7 @@ import { Button } from '@repo/ui';
 
 const CopyTraderItem = () => {
   const handleJoin = async () => {};
+
   return (
     <div className="bg-gray-900 flex flex-col justify-center items-center text-white">
       <div className="bg-gradient-to-tr from-yellow-500/20 to-black/40 rounded-lg shadow-lg w-full p-2 px-4">
