@@ -91,16 +91,16 @@ importers:
 
   apps/web:
     dependencies:
-      '@coin98t/wallet-adapter-coin98':
+      '@coin98-com/wallet-adapter-coin98':
         specifier: ^0.1.36
-        version: 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@coin98t/wallet-adapter-ramper':
+        version: 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-ramper':
         specifier: ^0.1.36
-        version: 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@coin98t/wallet-adapter-react':
+        version: 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-react':
         specifier: ^0.1.36
         version: 0.1.49(@solana/wallet-adapter-base@0.9.23(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10)))(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10))(react@18.3.1)
-      '@coin98t/wallet-adapter-react-ui':
+      '@coin98-com/wallet-adapter-react-ui':
         specifier: ^0.1.36
         version: 0.1.49
       '@repo/constants':
@@ -403,13 +403,13 @@ importers:
 
   packages/plugins/pluginCopyTrade:
     dependencies:
-      '@coin98t/wallet-adapter-coin98':
+      '@coin98-com/wallet-adapter-coin98':
         specifier: ^0.1.36
-        version: 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@coin98t/wallet-adapter-react':
+        version: 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-react':
         specifier: ^0.1.36
         version: 0.1.49(@solana/wallet-adapter-base@0.9.23(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10)))(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10))(react@18.3.1)
-      '@coin98t/wallet-adapter-react-ui':
+      '@coin98-com/wallet-adapter-react-ui':
         specifier: ^0.1.36
         version: 0.1.49
       '@repo/plugin-sdk':
@@ -427,6 +427,15 @@ importers:
       '@repo/ui':
         specifier: workspace:*
         version: link:../../ui
+      '@types/lodash':
+        specifier: ^4.17.14
+        version: 4.17.14
+      axios:
+        specifier: ^1.7.9
+        version: 1.7.9
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       zustand:
         specifier: ^5.0.1
         version: 5.0.2(@types/react@18.3.14)(react@18.3.1)
@@ -513,7 +522,7 @@ importers:
 
   packages/screens:
     dependencies:
-      '@coin98t/wallet-adapter-react':
+      '@coin98-com/wallet-adapter-react':
         specifier: ^0.1.36
         version: 0.1.49(@solana/wallet-adapter-base@0.9.23(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10)))(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10))(react@18.3.1)
       '@dnd-kit/core':
@@ -1285,40 +1294,40 @@ packages:
     engines: {node: '>=0.1.95'}
     hasBin: true
 
-  '@coin98t/wallet-adapter-base@0.1.49':
-    resolution: {integrity: sha512-T0nfVfc6s5B9SAfUi/9I8xvmtE6P9GoBBDJ4Rc5w9W2K5IWHBHN89fHuwnvzD+KxampDrOyqqk6qyUdXwMLUxA==}
+  '@coin98-com/wallet-adapter-base@0.1.49':
+    resolution: {integrity: sha512-0bQ87ww1N+hI/pkL3YKPn7O8DzNpBqJhnCqLhybtohoYcd41tssLXU42qmPhazy3sQWJBjqY4+8wIRBk5Q1mrw==, tarball: https://registry.npmjs.org/@coin98-com/wallet-adapter-base/-/wallet-adapter-base-0.1.49.tgz}
 
-  '@coin98t/wallet-adapter-coin98-cosmos@0.1.49':
-    resolution: {integrity: sha512-h8iPmeH3uHsZlTfymD/+7qEnBiShX5fqcMyfoxoUGdWWcTObl20e9vegfljQpkErxHRDooBUe/pkYoirZW9ngg==}
+  '@coin98-com/wallet-adapter-coin98-cosmos@0.1.49':
+    resolution: {integrity: sha512-nV5k8J13X2jo4HnLuwUAvGjIE/W/bP8hlwuK3BaskmClZ7HeOp6Y6yiOiOn5q7y64VAPWId/+edZcRFYDsnQpg==, tarball: https://registry.npmjs.org/@coin98-com/wallet-adapter-coin98-cosmos/-/wallet-adapter-coin98-cosmos-0.1.49.tgz}
 
-  '@coin98t/wallet-adapter-coin98-ethereum@0.1.49':
-    resolution: {integrity: sha512-t5+WDDBHNVTKTN2D+GwP3u6tcTawNnHyli8HJO+dKphpLxBEcN0GHBeA3CWbbAVdt6fogFq4Bo58sPFi05fiIQ==}
+  '@coin98-com/wallet-adapter-coin98-ethereum@0.1.49':
+    resolution: {integrity: sha512-XsELKEdQddhROBJLVufB8+vJadZlG+FpgEgoe8H7T2INLil9vscBcdnQfnvZ6RkYg/gkkY8BKk5Q44tpxPpPVA==, tarball: https://registry.npmjs.org/@coin98-com/wallet-adapter-coin98-ethereum/-/wallet-adapter-coin98-ethereum-0.1.49.tgz}
 
-  '@coin98t/wallet-adapter-coin98-near@0.1.49':
-    resolution: {integrity: sha512-h60KxH+oL3X9BN3/YbrKykN88jCaCGfpF+QIzZFGe1C8+URMZlZuO0bT8QpVZRJDFVACV/pQfZ/MgwdSc0MGSg==}
+  '@coin98-com/wallet-adapter-coin98-near@0.1.49':
+    resolution: {integrity: sha512-21uir2wYjZurR8VohzsCB6H1aITHunMpFekG2qDa52hXDRACIp5GyLiDVrXbx1adv5E6mxvmsxlYA8AFSAO0Gg==, tarball: https://registry.npmjs.org/@coin98-com/wallet-adapter-coin98-near/-/wallet-adapter-coin98-near-0.1.49.tgz}
 
-  '@coin98t/wallet-adapter-coin98-solana@0.1.49':
-    resolution: {integrity: sha512-7aAPm5kg1sS7y4WQQFbObaISWiF5xYrkGnMBIM9rbUDkZUV7zxqjvpgaOAWHYuwEZkCvFzjMnMthwmoFz1FT9A==}
+  '@coin98-com/wallet-adapter-coin98-solana@0.1.49':
+    resolution: {integrity: sha512-/JQCuM6gG7Zw9DOVTaSBIMr3F7KCNeONWyygjeBLcyFPPFm3yf1lVetf+lO91xWiBvHPyqqxv/GUpmb/8cUXgg==, tarball: https://registry.npmjs.org/@coin98-com/wallet-adapter-coin98-solana/-/wallet-adapter-coin98-solana-0.1.49.tgz}
     peerDependencies:
       '@solana/web3.js': ^1.78.5
 
-  '@coin98t/wallet-adapter-coin98-ton@0.1.49':
-    resolution: {integrity: sha512-ppSm3mP0ZqBeQWd0arQUcYDUccwAwD0ljqU5ZRuLyyzOl9GPZJBp8DTjcZAY5NdEPJPM5AJSgHfiwhglNXUl6g==}
+  '@coin98-com/wallet-adapter-coin98-ton@0.1.49':
+    resolution: {integrity: sha512-ZalUsSkRQjJ3OQOZHbdr9avgs2OkWS1c2zRLskcyBIAlfjklm/2Uu2vyrWqZ37+5y0Q3s5x8rWZzr2Rdgaozhg==, tarball: https://registry.npmjs.org/@coin98-com/wallet-adapter-coin98-ton/-/wallet-adapter-coin98-ton-0.1.49.tgz}
 
-  '@coin98t/wallet-adapter-coin98@0.1.49':
-    resolution: {integrity: sha512-hIfglONL23vULRwmv64tK1Vq/YOtipo05s2hTKHP/PBWRzLt5REhIVTCw2Idc0TDNjGi5WmSG7ETwUemAKjEXw==}
+  '@coin98-com/wallet-adapter-coin98@0.1.49':
+    resolution: {integrity: sha512-2IY2MmpDpDkxQrNLcce2AuyRCczrXDFhywKbLM+Y+pu6LKyN0E6Wpzdr9eVa1eAFoCXMg9t/06BuFf0HlSs9Yw==, tarball: https://registry.npmjs.org/@coin98-com/wallet-adapter-coin98/-/wallet-adapter-coin98-0.1.49.tgz}
 
-  '@coin98t/wallet-adapter-ramper-ethereum@0.1.49':
-    resolution: {integrity: sha512-tp6bxLVs+5+LxAg37W2jgaq8/gv7WelNqE0FYhvPPXigtl81jor3RHyWZwu9n6ajXesti+Seupq8jIM6+2zFAg==}
+  '@coin98-com/wallet-adapter-ramper-ethereum@0.1.49':
+    resolution: {integrity: sha512-rIGlvQdrfKUcnrFdT5Cqak6WsQVkiqyvoULDwu23LAwCL3Ihfu9LwQ/2DQnKDJux5+NXXJT9vORPn8YFp0X9vA==, tarball: https://registry.npmjs.org/@coin98-com/wallet-adapter-ramper-ethereum/-/wallet-adapter-ramper-ethereum-0.1.49.tgz}
 
-  '@coin98t/wallet-adapter-ramper@0.1.49':
-    resolution: {integrity: sha512-vTB20KpPrRgBjV2rlqsVMxou2+e8mD2K0JT+9N28vl3hyegxHyVg7hdN10PeY1HwkW8W0HRPmrlUTcaKfQdrrw==}
+  '@coin98-com/wallet-adapter-ramper@0.1.49':
+    resolution: {integrity: sha512-/ZbLpUqJwaVEAQPYfvzhzn+gM/tkWvshv5E2B6Q/UWONa4wFDMLiEMNBpo5cn0nY0URyKerj3TA3C8V2iIPhHQ==, tarball: https://registry.npmjs.org/@coin98-com/wallet-adapter-ramper/-/wallet-adapter-ramper-0.1.49.tgz}
 
-  '@coin98t/wallet-adapter-react-ui@0.1.49':
-    resolution: {integrity: sha512-HKaOEyfIiC20JgrWLgpXQngYKCzmL1WhMo0BaFEzZhIsCatx5jKM22+RN8ay2017lr2xGaADYUxe+hdVQHNTxA==}
+  '@coin98-com/wallet-adapter-react-ui@0.1.49':
+    resolution: {integrity: sha512-nBGS2Q4xnuaw/uInqzN9tGYpaZvuJuWy7y7OEVFn1iY2eK2idbg6PHP2CxyAzKgdeIUcpcd0aIPnmhLfg1r+nw==, tarball: https://registry.npmjs.org/@coin98-com/wallet-adapter-react-ui/-/wallet-adapter-react-ui-0.1.49.tgz}
 
-  '@coin98t/wallet-adapter-react@0.1.49':
-    resolution: {integrity: sha512-Ljws38jeOU6s+OqTGV5UZ4DlrcPp+2KZH5vk1z01hw4Y7u0bjSGoacOXJy/DbScCXnBgRCRAmF4DP2IujQScbg==}
+  '@coin98-com/wallet-adapter-react@0.1.49':
+    resolution: {integrity: sha512-sVhzBJp57gDS/DVcu97nUHMP7PLhXd8llhc3d6M0C1U6Vq3t1odpTL0EZJzLJ3zpZO3s+/mO/gHvSA6kUv696w==, tarball: https://registry.npmjs.org/@coin98-com/wallet-adapter-react/-/wallet-adapter-react-0.1.49.tgz}
 
   '@commitlint/cli@19.6.0':
     resolution: {integrity: sha512-v17BgGD9w5KnthaKxXnEg6KLq6DYiAxyiN44TpiRtqyW8NSq+Kx99mkEG8Qo6uu6cI5eMzMojW2muJxjmPnF8w==, tarball: https://registry.npmjs.org/@commitlint/cli/-/cli-19.6.0.tgz}
@@ -9569,7 +9578,7 @@ snapshots:
       exec-sh: 0.3.6
       minimist: 1.2.8
 
-  '@coin98t/wallet-adapter-base@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-base@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
     dependencies:
       '@near-js/crypto': 0.0.5
       '@polkadot/types': 10.11.2
@@ -9606,7 +9615,7 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@coin98t/wallet-adapter-base@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-base@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
     dependencies:
       '@near-js/crypto': 0.0.5
       '@polkadot/types': 10.11.2
@@ -9643,9 +9652,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@coin98t/wallet-adapter-coin98-cosmos@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-coin98-cosmos@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
     dependencies:
-      '@coin98t/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       '@cosmjs/cosmwasm-stargate': 0.30.1(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       '@cosmjs/encoding': 0.30.1
       '@cosmjs/stargate': 0.30.1(bufferutil@4.0.8)(utf-8-validate@5.0.10)
@@ -9675,9 +9684,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@coin98t/wallet-adapter-coin98-cosmos@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-coin98-cosmos@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
     dependencies:
-      '@coin98t/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       '@cosmjs/cosmwasm-stargate': 0.30.1(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       '@cosmjs/encoding': 0.30.1
       '@cosmjs/stargate': 0.30.1(bufferutil@4.0.8)(utf-8-validate@5.0.10)
@@ -9707,9 +9716,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@coin98t/wallet-adapter-coin98-ethereum@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-coin98-ethereum@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
     dependencies:
-      '@coin98t/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       web3-types: 1.10.0
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -9734,9 +9743,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@coin98t/wallet-adapter-coin98-ethereum@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-coin98-ethereum@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
     dependencies:
-      '@coin98t/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       web3-types: 1.10.0
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -9761,9 +9770,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@coin98t/wallet-adapter-coin98-near@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-coin98-near@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
     dependencies:
-      '@coin98t/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       '@near-js/crypto': 0.0.5
       '@types/bn.js': 5.1.6
       bn.js: 5.2.1
@@ -9794,9 +9803,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@coin98t/wallet-adapter-coin98-near@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-coin98-near@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
     dependencies:
-      '@coin98t/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       '@near-js/crypto': 0.0.5
       '@types/bn.js': 5.1.6
       bn.js: 5.2.1
@@ -9827,9 +9836,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@coin98t/wallet-adapter-coin98-solana@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-coin98-solana@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
     dependencies:
-      '@coin98t/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       '@solana/web3.js': 1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       bs58: 4.0.1
     transitivePeerDependencies:
@@ -9855,9 +9864,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@coin98t/wallet-adapter-coin98-solana@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-coin98-solana@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
     dependencies:
-      '@coin98t/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       '@solana/web3.js': 1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       bs58: 4.0.1
     transitivePeerDependencies:
@@ -9883,9 +9892,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@coin98t/wallet-adapter-coin98-ton@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-coin98-ton@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
     dependencies:
-      '@coin98t/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       '@ton/core': 0.57.0(@ton/crypto@3.3.0)
       '@ton/crypto': 3.3.0
       web3-types: 1.10.0
@@ -9910,14 +9919,14 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@coin98t/wallet-adapter-coin98@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-coin98@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
     dependencies:
-      '@coin98t/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@coin98t/wallet-adapter-coin98-cosmos': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@coin98t/wallet-adapter-coin98-ethereum': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@coin98t/wallet-adapter-coin98-near': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@coin98t/wallet-adapter-coin98-solana': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@coin98t/wallet-adapter-coin98-ton': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-coin98-cosmos': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-coin98-ethereum': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-coin98-near': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-coin98-solana': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-coin98-ton': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       '@solana/web3.js': 1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -9942,14 +9951,14 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@coin98t/wallet-adapter-coin98@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-coin98@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
     dependencies:
-      '@coin98t/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@coin98t/wallet-adapter-coin98-cosmos': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@coin98t/wallet-adapter-coin98-ethereum': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@coin98t/wallet-adapter-coin98-near': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@coin98t/wallet-adapter-coin98-solana': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@coin98t/wallet-adapter-coin98-ton': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-coin98-cosmos': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-coin98-ethereum': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-coin98-near': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-coin98-solana': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-coin98-ton': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       '@solana/web3.js': 1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -9974,9 +9983,9 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@coin98t/wallet-adapter-ramper-ethereum@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-ramper-ethereum@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
     dependencies:
-      '@coin98t/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
       web3-types: 1.10.0
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -10001,10 +10010,10 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@coin98t/wallet-adapter-ramper@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-ramper@0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)':
     dependencies:
-      '@coin98t/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
-      '@coin98t/wallet-adapter-ramper-ethereum': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-base': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-ramper-ethereum': 0.1.49(@polkadot/api@15.0.1(bufferutil@4.0.8)(utf-8-validate@5.0.10))(@ton/core@0.57.0(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.8)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -10028,13 +10037,13 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@coin98t/wallet-adapter-react-ui@0.1.49':
+  '@coin98-com/wallet-adapter-react-ui@0.1.49':
     dependencies:
       '@types/ua-parser-js': 0.7.39
       tailwind-merge: 1.14.0
       ua-parser-js: 1.0.39
 
-  '@coin98t/wallet-adapter-react@0.1.49(@solana/wallet-adapter-base@0.9.23(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10)))(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10))(react@18.3.1)':
+  '@coin98-com/wallet-adapter-react@0.1.49(@solana/wallet-adapter-base@0.9.23(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10)))(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10))(react@18.3.1)':
     dependencies:
       '@solana/wallet-standard-wallet-adapter-react': 1.1.2(@solana/wallet-adapter-base@0.9.23(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10)))(@solana/web3.js@1.95.8(bufferutil@4.0.8)(utf-8-validate@5.0.10))(bs58@4.0.1)(react@18.3.1)
       bs58: 4.0.1
