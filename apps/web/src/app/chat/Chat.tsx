@@ -24,7 +24,7 @@ export default function Chat() {
 
   useEffect(() => {
     ;(async () => {
-      const res = await BaseAPI({ method: 'get', url: '/ping' })
+      const res = await BaseAPI({ method: 'get', url: '/trades' })
       console.debug('🚀 ~ file: Chat.tsx:28 ~ res:', res)
     })()
   }, [])

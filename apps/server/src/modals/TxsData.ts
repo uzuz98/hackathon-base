@@ -5,7 +5,6 @@ export interface ITxsData extends Document {
   address: string
   txs: Array<RawData>
   roi: number
-  timestamp: Date
 }
 
 const txsData: Schema = new Schema({
@@ -19,10 +18,6 @@ const txsData: Schema = new Schema({
   },
   roi: {
     type: Number,
-  },
-  timestamp: {
-    type: Date,
-    default: Date.now,
   },
 })
 

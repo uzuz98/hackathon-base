@@ -2,7 +2,7 @@ import mongoose, { Document, Schema } from 'mongoose'
 
 export interface IAddress extends Document {
   address: string
-  timestamp: Date
+  sig: string
 }
 
 const addressSchema: Schema = new Schema({
@@ -14,10 +14,6 @@ const addressSchema: Schema = new Schema({
     type: String,
     unique: true,
     required: true,
-  },
-  timestamp: {
-    type: Date,
-    default: Date.now,
   },
 })
 

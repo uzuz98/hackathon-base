@@ -1,5 +1,5 @@
 // const fs = require('fs')
-import fs from 'fs'
+// import fs from 'fs'
 import { KYBER_ABI } from '../abi/KYBER_ABI'
 
 import Web3 from 'web3'
@@ -15,7 +15,7 @@ const ADDRESS_TEST = '0xd7eDaF6892cfb6076cc57Ea2880bF4CC6708e3E3'
 const API_KEY = 'HZW7E85H77YRNZWBZSRTA3C2V5SZQF9XV1'
 const KYBER_NETWORK_ADDRESS = '0x6131B5fae19EA4f9D964eAc0408E4408b66337b5'
 const INTERNAL_TRANSACTION = '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE'
-const FILES_NAME = 'kyber_transactions.json'
+// const FILES_NAME = 'kyber_transactions.json'
 const WRAPED_ETH = '0x4200000000000000000000000000000000000006'
 
 // const RPC = {
@@ -112,13 +112,13 @@ const filterTransactionByContractAddress = (transactions: any[], contractAddress
   })
 }
 
-const appendToFile = (fileName: string, data: string) => {
-  fs.appendFileSync(fileName, data)
-}
+// const appendToFile = (fileName: string, data: string) => {
+//   fs.appendFileSync(fileName, data)
+// }
 
-const readFromFile = (fileName: string) => {
-  return fs.readFileSync(fileName, 'utf8')
-}
+// const readFromFile = (fileName: string) => {
+//   return fs.readFileSync(fileName, 'utf8')
+// }
 
 // Decode the input data
 export const decodeInput = (abi: any[], data: string) => {
@@ -207,17 +207,21 @@ export const getDataFromRawData = async (transaction: any) => {
 const parseRawData = async (timeframe: number, address: string): Promise<RawData[]> => {
   // check if the file exists
 
-  const isFileExists = fs.existsSync(FILES_NAME)
-  // if file not exists, create a new file
-  if (!isFileExists) {
-    const transactions = await getAddressTransactionInTimeframe(timeframe, address)
-    const kyberTransactions = filterTransactionByContractAddress(transactions, KYBER_NETWORK_ADDRESS)
-    // append to file
-    appendToFile(FILES_NAME, JSON.stringify(kyberTransactions))
-  }
+  // const isFileExists = fs.existsSync(FILES_NAME)
+  // // if file not exists, create a new file
+  // if (!isFileExists) {
+  //   const transactions = await getAddressTransactionInTimeframe(timeframe, address)
+  //   const kyberTransactions = filterTransactionByContractAddress(transactions, KYBER_NETWORK_ADDRESS)
+  //   // append to file
+  //   appendToFile(FILES_NAME, JSON.stringify(kyberTransactions))
+  // }
 
-  // if file exists, read the file
-  const kyberTransactions = JSON.parse(readFromFile(FILES_NAME))
+  // // if file exists, read the file
+  // const kyberTransactions = JSON.parse(readFromFile(FILES_NAME))
+
+  const transactions = await getAddressTransactionInTimeframe(timeframe, address)
+  const kyberTransactions = filterTransactionByContractAddress(transactions, KYBER_NETWORK_ADDRESS)
+
   let dataFinal = []
   for (let i = 0; i < kyberTransactions.length; i++) {
     const transaction = kyberTransactions[i]
@@ -298,6 +302,7 @@ export const getData = async (
 } | null> => {
   try {
     const dataRaw = await parseRawData(time, address)
+    console.log('🚀 ~ file: rawTx.ts:301 ~ dataRaw:', dataRaw)
     // let unrealizedProfit = 0
     let realizedProfit = 0
     let tempDataRaw = dataRaw || []
