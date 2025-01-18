@@ -22,7 +22,7 @@ const WRAPED_ETH = '0x4200000000000000000000000000000000000006'
 //   8453: 'https://base.llamarpc.com',
 // }
 
-export type RawData = {
+type RawData = {
   functionName: any
   srcToken: any
   dstToken: any
@@ -290,14 +290,13 @@ const parseRawData = async (timeframe: number, address: string): Promise<RawData
 }
 
 export const getData = async (
-  address: string,
   time: TIME_FRAME,
 ): Promise<{
   txs: RawData[]
   roi: number
 } | null> => {
   try {
-    const dataRaw = await parseRawData(time, address)
+    const dataRaw = await parseRawData(time, ADDRESS_TEST)
     // let unrealizedProfit = 0
     let realizedProfit = 0
     let tempDataRaw = dataRaw || []
