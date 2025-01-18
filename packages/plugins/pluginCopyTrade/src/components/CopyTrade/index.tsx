@@ -4,12 +4,17 @@ import { useWallet } from '@coin98-com/wallet-adapter-react';
 import React, { useEffect } from 'react';
 import BaseAPI from '../../axios';
 import { useCheckHub } from '../../context/checkHubContext';
+import { Button } from '@repo/ui';
 
 const CopyTraderItem = () => {
+  const handleJoin = async () => {};
   return (
-    <div className="rounded-xl border p-2">
-      <div className="">Address: 0x22</div>
-      <div className="">Roi: 100%</div>
+    <div className="bg-gray-900 flex flex-col justify-center items-center text-white">
+      <div className="bg-gradient-to-tr from-yellow-500/20 to-black/40 rounded-lg shadow-lg w-full p-2 px-4">
+        <div className="text-lg font-bold text-white">Address: 0x2</div>
+        <p className="mb-8">ROI: 100%</p>
+        <Button className="float-end">Join</Button>
+      </div>
     </div>
   );
 };
