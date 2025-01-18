@@ -1,6 +1,6 @@
 'use client'
-import { useWallet } from '@coin98t/wallet-adapter-react'
-import { useWalletModal } from '@coin98t/wallet-adapter-react-ui'
+import { useWallet } from '@coin98-com/wallet-adapter-react'
+import { useWalletModal } from '@coin98-com/wallet-adapter-react-ui'
 import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, Icon } from '@repo/ui'
 import { useTheme } from 'next-themes'
 import Image from 'next/image'

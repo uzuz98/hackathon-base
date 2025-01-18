@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '@coin98t/wallet-adapter-react-ui/styles.css';
+@import '@coin98-com/wallet-adapter-react-ui/styles.css';
 
 @import './icons.css';
 

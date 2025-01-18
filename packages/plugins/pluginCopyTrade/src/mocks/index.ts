@@ -1,0 +1,1 @@
+export { mockUserInfo } from './mockDataInfo';
