@@ -1,6 +1,7 @@
 import { useGlobalHook, useRegisterPlugin } from '@repo/plugin-sdk';
 import React from 'react';
 import CopyTrade from './components/CopyTrade';
+import { CheckHubProvider } from './context/checkHubContext';
 
 export const PluginCopyTrade = () => {
   const { add_hook } = useGlobalHook();
@@ -32,7 +33,9 @@ export const PluginCopyTrade = () => {
   });
   return (
     <div className="border rounded-lg p-4 border-dividerColorDefault">
-      <CopyTrade />
+      <CheckHubProvider>
+        <CopyTrade />
+      </CheckHubProvider>
     </div>
   );
 };
