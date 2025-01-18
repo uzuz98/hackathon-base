@@ -1,11 +1,6 @@
 'use client';
 
-import { useWallet } from '@coin98t/wallet-adapter-react';
-import React, { useEffect } from 'react';
-import { Web3 } from 'web3';
-import { useCheckHub } from '../../context/checkHubContext';
-import { useKeyStore } from '../../stores/privateKeyStore';
-import { formatAddress } from '../../utils';
+import React from 'react';
 
 const CopyTraderItem = () => {
   return (
@@ -17,28 +12,28 @@ const CopyTraderItem = () => {
 };
 
 const CopyTrade = () => {
-  const { address } = useWallet();
-  const { privateKey } = useKeyStore();
-  useCheckHub();
+  // const { address } = useWallet();
+  // const { privateKey } = useKeyStore();
+  // useCheckHub();
 
-  const handleSwap = async () => {
-    const web3 = new Web3('');
-    const tx = {};
-    const signedTx = await web3.eth.accounts.signTransaction(tx, privateKey);
+  // const handleSwap = async () => {
+  //   const web3 = new Web3('');
+  //   const tx = {};
+  //   const signedTx = await web3.eth.accounts.signTransaction(tx, privateKey);
 
-    await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
-  };
+  //   await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+  // };
 
-  useEffect(() => {
-    if (!privateKey) {
-      return;
-    }
-    handleSwap();
-  }, [privateKey]);
+  // useEffect(() => {
+  //   if (!privateKey) {
+  //     return;
+  //   }
+  //   handleSwap();
+  // }, [privateKey]);
 
   return (
     <div>
-      <div>Connected address: {formatAddress(address)}</div>
+      {/* <div>Connected address: {formatAddress(address)}</div> */}
       <div>Copy Trader</div>
       <div className="flex flex-col gap-4">
         {[1, 2, 3, 4, 5].map((item) => (
