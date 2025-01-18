@@ -10,10 +10,10 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@coin98t/wallet-adapter-coin98": "^0.1.36",
-    "@coin98t/wallet-adapter-ramper": "^0.1.36",
-    "@coin98t/wallet-adapter-react": "^0.1.36",
-    "@coin98t/wallet-adapter-react-ui": "^0.1.36",
+    "@coin98-com/wallet-adapter-coin98": "^0.1.36",
+    "@coin98-com/wallet-adapter-ramper": "^0.1.36",
+    "@coin98-com/wallet-adapter-react": "^0.1.36",
+    "@coin98-com/wallet-adapter-react-ui": "^0.1.36",
     "@repo/constants": "workspace:*",
     "@repo/plugin-sdk": "workspace:*",
     "@repo/screens": "workspace:*",

@@ -23,9 +23,9 @@
     "react": ">=16"
   },
   "dependencies": {
-    "@coin98t/wallet-adapter-coin98": "^0.1.36",
-    "@coin98t/wallet-adapter-react": "^0.1.36",
-    "@coin98t/wallet-adapter-react-ui": "^0.1.36",
+    "@coin98-com/wallet-adapter-coin98": "^0.1.36",
+    "@coin98-com/wallet-adapter-react": "^0.1.36",
+    "@coin98-com/wallet-adapter-react-ui": "^0.1.36",
     "@repo/plugin-sdk": "workspace:*",
     "@repo/store": "workspace:*",
     "@repo/tailwind-config": "workspace:*",

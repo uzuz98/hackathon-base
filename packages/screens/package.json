@@ -40,7 +40,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "@dnd-kit/core": "^6.2.0",
-    "@coin98t/wallet-adapter-react": "^0.1.36",
+    "@coin98-com/wallet-adapter-react": "^0.1.36",
     "@radix-ui/react-slot": "^1.1.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

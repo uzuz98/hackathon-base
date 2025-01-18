@@ -1,5 +1,5 @@
 // 'use client';
-// import { useWallet } from '@coin98t/wallet-adapter-react';
+// import { useWallet } from '@coin98-com/wallet-adapter-react';
 // import React, { createContext, useContext, useEffect } from 'react';
 // import { useKeyStore } from '../stores/privateKeyStore';
 
