@@ -46,7 +46,6 @@
   "name": "with-tailwind",
   "packageManager": "pnpm@7.16.1",
   "dependencies": {
-    "@tanstack/react-query": "^5.62.7",
-    "@types/lodash": "^4.17.14"
+    "@tanstack/react-query": "^5.62.7"
   }
 }
