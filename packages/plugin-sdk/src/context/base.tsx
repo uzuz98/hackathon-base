@@ -26,8 +26,8 @@ export const HookProvider: FC<PropsWithChildren> = ({ children }) => {
   const [actions, setActions] = React.useState<THooksMap>({});
   const [filters, setFilters] = React.useState<THooksMap>({});
 
-  console.log(`🐳 -> actions`, actions);
-  console.log(`🐳 -> filters`, filters);
+  // console.log(`🐳 -> actions`, actions);
+  // console.log(`🐳 -> filters`, filters);
 
   const add_hook = (
     hookName: string,

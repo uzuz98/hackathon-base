@@ -1,7 +1,8 @@
-import { PluginA } from '@test/pluga'
-import { PluginB } from '@test/plugb'
+import { PluginCopyTrade } from '@test/plug_copy_trade'
 import { PluginFeature } from '@test/plug_feature'
 import { PluginPortfolio } from '@test/plug_portfolio'
+import { PluginA } from '@test/pluga'
+import { PluginB } from '@test/plugb'
 import { TPluginData } from '../types'
 
 export const PLUGINS: TPluginData[] = [
@@ -43,6 +44,16 @@ export const PLUGINS: TPluginData[] = [
     image: 'https://coin98.s3.amazonaws.com/ew00D2Rxrc031LBw',
     plugin: PluginPortfolio,
     size: '4x2',
+    status: 'active',
+  },
+  {
+    id: 'PluginCopyTrade',
+    name: 'PluginCopyTrade',
+    url: 'https://snaps.metamask.io/snap/npm/solflare-wallet/solana-snap/',
+    description: 'Data portfolio user',
+    image: 'https://coin98.s3.amazonaws.com/ew00D2Rxrc031LBw',
+    plugin: PluginCopyTrade,
+    size: '4x6',
     status: 'active',
   },
 ]

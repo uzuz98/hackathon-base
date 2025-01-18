@@ -23,11 +23,15 @@
     "react": ">=16"
   },
   "dependencies": {
+    "@coin98t/wallet-adapter-coin98": "^0.1.36",
+    "@coin98t/wallet-adapter-react": "^0.1.36",
+    "@coin98t/wallet-adapter-react-ui": "^0.1.36",
     "@repo/plugin-sdk": "workspace:*",
+    "@repo/store": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
-    "@repo/ui": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "@repo/store": "workspace:*"
+    "@repo/ui": "workspace:*",
+    "zustand": "^5.0.1"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^11.1.6",
@@ -47,16 +51,16 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "@test/plug_portfolio",
-  "author": "DangVu137",
-  "module": "dist/pluginportfolio.esm.js",
+  "name": "@test/plug_copy_trade",
+  "author": "Team2",
+  "module": "dist/pluginCopyTrade.esm.js",
   "size-limit": [
     {
-      "path": "dist/pluginportfolio.cjs.production.min.js",
+      "path": "dist/pluginCopyTrade.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/pluginportfolio.esm.js",
+      "path": "dist/pluginCopyTrade.esm.js",
       "limit": "10 KB"
     }
   ]
