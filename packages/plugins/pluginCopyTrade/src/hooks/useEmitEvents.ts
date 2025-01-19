@@ -29,7 +29,7 @@ export const handleListenEvent = (
 
       if (address.toLowerCase() !== rawTxsData.from?.toLowerCase()) return;
 
-      // await sleep(2000);
+      await sleep(2000);
 
       BaseAPI({
         method: 'POST',

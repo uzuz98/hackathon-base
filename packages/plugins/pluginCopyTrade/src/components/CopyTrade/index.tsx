@@ -4,7 +4,7 @@ import { Button } from '@repo/ui';
 import dayjs from 'dayjs';
 import { get, reverse, sortBy } from 'lodash';
 import React, { useEffect, useState } from 'react';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import BaseAPI from '../../axios';
 import { useCheckHub } from '../../context/checkHubContext';
 import { handleListenEvent } from '../../hooks/useEmitEvents';
@@ -164,7 +164,6 @@ const CopyTrade = () => {
   return (
     <div>
       {/* <div>Connected address: {formatAddress(address)}</div> */}
-      <ToastContainer />
 
       <Root defaultValue="list">
         <TabsList className="flex gap-4 text-xl mb-4">
