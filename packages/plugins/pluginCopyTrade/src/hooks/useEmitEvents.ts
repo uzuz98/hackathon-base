@@ -26,11 +26,10 @@ export const handleListenEvent = (
       const rawTxsData = await waiter(() =>
         client.eth.getTransaction(data.transactionHash)
       );
-      console.log('🚀 ~ .on ~ rawTxsData:', rawTxsData);
 
       if (address.toLowerCase() !== rawTxsData.from?.toLowerCase()) return;
 
-      await sleep(2000);
+      // await sleep(2000);
 
       BaseAPI({
         method: 'POST',
@@ -40,7 +39,10 @@ export const handleListenEvent = (
         if (!res.data) return;
 
         toast('New trade executed', { type: 'info' });
-        callback(res.data);
+        callback({
+          ...res.data,
+          from: rawTxsData.from
+        });
       });
     });
 };

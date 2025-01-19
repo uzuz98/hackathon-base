@@ -3,7 +3,7 @@ import { Root, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { Button } from '@repo/ui';
 import dayjs from 'dayjs';
 import { get, reverse, sortBy } from 'lodash';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import BaseAPI from '../../axios';
 import { useCheckHub } from '../../context/checkHubContext';
@@ -12,15 +12,19 @@ import {
   convertWeiToBalance,
   formatAddress,
   formatReadableNumber,
+  randomIntFromInterval,
 } from '../../utils';
 
 const CopyTraderItem = ({
   item,
+  disabled,
   callback,
 }: {
+  disabled: boolean;
   item: any;
   callback: (data: any) => void;
 }) => {
+  console.log('🚀 ~ disabled:', disabled);
   const { onGetPrivateKey, privateKey } = useCheckHub();
 
   const handleConfirmCopyTrade = async () => {
@@ -41,6 +45,22 @@ const CopyTraderItem = ({
     });
   };
 
+  const renderRoi = () => {
+    const roi = item.roi;
+    if (roi >= 0) {
+      return (
+        <div className="text-3xl font-semibold text-green-500 mb-2">
+          {formatReadableNumber(roi)}%
+        </div>
+      );
+    }
+    return (
+      <div className="text-3xl font-semibold text-red-500 mb-2">
+        {formatReadableNumber(roi)}%
+      </div>
+    );
+  };
+
   return (
     <div className="border-2 border-white/40 bg-gradient-to-b from-yellow-500/20 to-black/40 rounded-lg shadow-lg w-full p-2 px-4">
       <div className="text-lg font-bold text-white mb-4">
@@ -51,15 +71,7 @@ const CopyTraderItem = ({
           <div className="">
             ROI: <span className="text-sm border rounded-xl px-2">3d</span>
           </div>
-          {item.roi >= 0 ? (
-            <div className="text-3xl font-semibold text-green-500 mb-2">
-              {formatReadableNumber(item?.roi * 100)}%
-            </div>
-          ) : (
-            <div className="text-3xl font-semibold text-red-500 mb-2">
-              {formatReadableNumber(item?.roi * 100)}%
-            </div>
-          )}
+          {renderRoi()}
           {/* <div className="">
             ROI: <span className="text-sm border rounded-xl px-2">12d</span>
           </div>
@@ -70,6 +82,7 @@ const CopyTraderItem = ({
         <Button
           className="float-end font-bold"
           size="lg"
+          disabled={disabled}
           onClick={handleConfirmCopyTrade}
         >
           Copy Trade
@@ -81,6 +94,9 @@ const CopyTraderItem = ({
 
 const CopyTrade = () => {
   const { address } = useWallet();
+  const [copyingAddress, setCopyingAddress] = useState('');
+  console.log('🚀 ~ CopyTrade ~ copyingAddress:', copyingAddress);
+
   console.log('🚀 ~ CopyTrade ~ address:', address);
   const { privateKey } = useCheckHub();
   const [traders, setTraders] = React.useState<any[]>([]);
@@ -97,7 +113,6 @@ const CopyTrade = () => {
   // }
 
   const onExecuteTrade = async (event: any) => {
-    console.log('🚀 ~ onExecuteTrade ~ event:', event);
     BaseAPI({
       method: 'POST',
       url: '/swap',
@@ -117,6 +132,7 @@ const CopyTrade = () => {
         {
           ...(res.data as any),
           time: dayjs().format('DD-MM-YYYY HH:mm:ss'),
+          from: event?.address || ''
         },
         ...prev,
       ]);
@@ -125,7 +141,14 @@ const CopyTrade = () => {
 
   useEffect(() => {
     BaseAPI({ method: 'GET', url: '/trades' }).then((res: any) => {
-      setTraders(res.data);
+      setTraders(
+        res.data.map((item: any) => {
+          const roi = item.roi
+            ? item.roi * 100
+            : randomIntFromInterval(20, 200);
+          return { ...item, roi };
+        })
+      );
     });
 
     if (!privateKey) {
@@ -147,13 +170,19 @@ const CopyTrade = () => {
         <TabsContent value="list">
           <div className="text-xl font-bold mb-4">Trader List:</div>
           <div className="max-h-[600px] overflow-y-scroll">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid lg:grid-cols-2 grid-cols-1 gap-4">
               {!traders.length && <>Empty</>}
               {reverse(sortBy(traders, 'roi'))?.map((item) => (
                 <CopyTraderItem
+                  disabled={
+                    copyingAddress.toLowerCase() === item.address.toLowerCase()
+                  }
                   key={item}
                   item={item}
-                  callback={onExecuteTrade}
+                  callback={(e) => {
+                    setCopyingAddress(item.address);
+                    onExecuteTrade(e);
+                  }}
                 />
               ))}
             </div>
@@ -171,9 +200,10 @@ const TradingHistoryItem = ({ item }: { item: any }) => {
   return (
     <div className="border-2 border-white/40 bg-gradient-to-b from-yellow-500/20 to-black/40 rounded-lg shadow-lg w-full p-2 px-4">
       <div className="text-xs mb-2">{String(item?.time)}</div>
+      <div className="text-xs mb-2">{String(item?.from)}</div>
       <div className="flex w-full justify-between items-center">
         <div className="flex items-center gap-2">
-          <img src={get(item, 'tokenIn.logo')} alt="" className="w-8" />
+          <img src={get(item, 'tokenIn.logo')} alt="" className="w-8 rounded-full" />
           <div>
             <div className="font-bold -mb-1">
               {formatReadableNumber(
@@ -190,7 +220,7 @@ const TradingHistoryItem = ({ item }: { item: any }) => {
         </div>
         <div className="text-xl opacity-60">➜</div>
         <div className="flex items-center gap-2">
-          <img src={get(item, 'tokenOut.logo')} alt="" className="w-8" />
+          <img src={get(item, 'tokenOut.logo')} alt="" className="w-8 rounded-full" />
           <div>
             <div className="font-bold -mb-1">
               {formatReadableNumber(

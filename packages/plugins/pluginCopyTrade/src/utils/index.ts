@@ -70,3 +70,8 @@ export const convertBalanceToWei = (amount: string | number, decimal = 18) => {
     return new BigNumber('0');
   }
 };
+
+export function randomIntFromInterval(min: number, max: number) {
+  // min and max included
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
