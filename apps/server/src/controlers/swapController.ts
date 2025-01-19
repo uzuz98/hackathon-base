@@ -16,7 +16,7 @@ type IGetSwapRouteV1Params = {
     address: string
     decimals: number
   }
-  amountIn: string
+  amountIn: number
 }
 
 const getBaseTokenInfo = async (tokenInAddress: string, tokenOutAddress: string) => {
@@ -121,13 +121,12 @@ export const getDataToSwap = async (req: Request, res: Response): Promise<void> 
 
     tokenIn.decimals = tokenInMetaData.decimals
     tokenOut.decimals = tokenOutMetaData.decimals
-    const amountInWithFee = (Number(amountIn)*0.9).toString()
 
     const dataToSwap = await getDataToSwapV1({
       tokenIn,
       tokenOut,
       senderAddress,
-      amountIn:amountInWithFee,
+      amountIn,
     } as IGetDataToSwapV1Params)
     delete dataToSwap.data
     const responseData = {
