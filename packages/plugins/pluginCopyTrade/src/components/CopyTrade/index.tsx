@@ -19,10 +19,12 @@ const CopyTraderItem = ({
   item,
   disabled,
   callback,
+  onClick,
 }: {
   disabled: boolean;
   item: any;
   callback: (data: any) => void;
+  onClick: (data: any) => void;
 }) => {
   console.log('🚀 ~ disabled:', disabled);
   const { onGetPrivateKey, privateKey } = useCheckHub();
@@ -40,6 +42,8 @@ const CopyTraderItem = ({
 
     console.log('listen' + item.address);
     handleListenEvent(item.address, callback);
+    onClick(item.address);
+
     toast('Copied successfully ' + formatAddress(item.address), {
       type: 'success',
     });
@@ -85,7 +89,7 @@ const CopyTraderItem = ({
           disabled={disabled}
           onClick={handleConfirmCopyTrade}
         >
-          Copy Trade
+          {disabled ? 'Copied Trade' : 'Copy Trade'}
         </Button>
       </div>
     </div>
@@ -132,7 +136,7 @@ const CopyTrade = () => {
         {
           ...(res.data as any),
           time: dayjs().format('DD-MM-YYYY HH:mm:ss'),
-          from: event?.address || ''
+          from: event?.address || '',
         },
         ...prev,
       ]);
@@ -180,9 +184,9 @@ const CopyTrade = () => {
                   key={item}
                   item={item}
                   callback={(e) => {
-                    setCopyingAddress(item.address);
                     onExecuteTrade(e);
                   }}
+                  onClick={setCopyingAddress}
                 />
               ))}
             </div>
@@ -203,7 +207,11 @@ const TradingHistoryItem = ({ item }: { item: any }) => {
       <div className="text-xs mb-2">{String(item?.from)}</div>
       <div className="flex w-full justify-between items-center">
         <div className="flex items-center gap-2">
-          <img src={get(item, 'tokenIn.logo')} alt="" className="w-8 rounded-full" />
+          <img
+            src={get(item, 'tokenIn.logo')}
+            alt=""
+            className="w-8 rounded-full"
+          />
           <div>
             <div className="font-bold -mb-1">
               {formatReadableNumber(
@@ -220,7 +228,11 @@ const TradingHistoryItem = ({ item }: { item: any }) => {
         </div>
         <div className="text-xl opacity-60">➜</div>
         <div className="flex items-center gap-2">
-          <img src={get(item, 'tokenOut.logo')} alt="" className="w-8 rounded-full" />
+          <img
+            src={get(item, 'tokenOut.logo')}
+            alt=""
+            className="w-8 rounded-full"
+          />
           <div>
             <div className="font-bold -mb-1">
               {formatReadableNumber(
