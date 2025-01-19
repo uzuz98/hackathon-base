@@ -133,15 +133,15 @@ export const getDataToSwap = async (req: Request, res: Response): Promise<void> 
     bot.telegram.sendMessage(
       1036137132,
       `
-        tokenIn: 
-          - ${tokenInMetaData.symbol}
-          - ${tokenInMetaData.name}
-          - ${tokenInMetaData.address}
-        tokenOut: 
-          - ${tokenOutMetaData.symbol}
-          - ${tokenOutMetaData.name}
-          - ${tokenOutMetaData.address}
-        dataToSwap: ${JSON.stringify(dataToSwap)}
+tokenIn: 
+- ${tokenInMetaData.symbol}
+- ${tokenInMetaData.name}
+- ${tokenInMetaData.address}
+tokenOut: 
+- ${tokenOutMetaData.symbol}
+- ${tokenOutMetaData.name}
+- ${tokenOutMetaData.address}
+dataToSwap: ${JSON.stringify(dataToSwap)}
       `,
     )
 

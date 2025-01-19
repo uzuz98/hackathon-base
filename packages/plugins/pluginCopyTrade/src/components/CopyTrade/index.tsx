@@ -131,7 +131,7 @@ const CopyTrade = () => {
         {
           ...(res.data as any),
           time: dayjs().format('DD-MM-YYYY HH:mm:ss'),
-          from: event?.address || '',
+          from: event?.from || '',
         },
         ...prev,
       ]);
@@ -202,9 +202,9 @@ const CopyTrade = () => {
 
 const TradingHistoryItem = ({ item }: { item: any }) => {
   return (
-    <div className="border-2 border-white/40 bg-gradient-to-b from-yellow-500/20 to-black/40 rounded-lg shadow-lg w-full p-2 px-4">
+    <div className="border-2 border-white/40 bg-gradient-to-b from-yellow-500/20 to-black/40 rounded-lg shadow-lg w-1/3 p-2 px-4">
       <div className="text-xs mb-2">{String(item?.time)}</div>
-      <div className="text-xs mb-2">{String(item?.from)}</div>
+      <div className="text-xs mb-2 font-bold">{String(item?.from)}</div>
       <div className="flex w-full justify-between items-center">
         <div className="flex items-center gap-2">
           <img
