@@ -1,3 +1,4 @@
+import { toast } from 'react-toastify';
 import Web3 from 'web3';
 import BaseAPI from '../axios';
 
@@ -37,6 +38,8 @@ export const handleListenEvent = (
         payload: { transaction: rawTxsData },
       }).then((res: any) => {
         if (!res.data) return;
+
+        toast('New trade executed', { type: 'info' });
         callback(res.data);
       });
     });

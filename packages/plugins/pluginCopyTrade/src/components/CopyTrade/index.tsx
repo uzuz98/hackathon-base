@@ -1,8 +1,10 @@
 import { useWallet } from '@coin98-com/wallet-adapter-react';
 import { Root, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { Button } from '@repo/ui';
+import dayjs from 'dayjs';
 import { get, reverse, sortBy } from 'lodash';
 import React, { useEffect } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
 import BaseAPI from '../../axios';
 import { useCheckHub } from '../../context/checkHubContext';
 import { handleListenEvent } from '../../hooks/useEmitEvents';
@@ -11,7 +13,6 @@ import {
   formatAddress,
   formatReadableNumber,
 } from '../../utils';
-import { toast, ToastContainer } from 'react-toastify';
 
 const CopyTraderItem = ({
   item,
@@ -35,7 +36,9 @@ const CopyTraderItem = ({
 
     console.log('listen' + item.address);
     handleListenEvent(item.address, callback);
-    toast('Copied successfully address ' + item.address, { type: 'success' });
+    toast('Copied successfully ' + formatAddress(item.address), {
+      type: 'success',
+    });
   };
 
   return (
@@ -110,7 +113,13 @@ const CopyTrade = () => {
       },
     }).then((res) => {
       //TODO: check
-      setTradingHistories((prev) => [res.data as any, ...prev]);
+      setTradingHistories((prev) => [
+        {
+          ...(res.data as any),
+          time: dayjs().format('DD-MM-YYYY HH:mm:ss'),
+        },
+        ...prev,
+      ]);
     });
   };
 
@@ -137,14 +146,17 @@ const CopyTrade = () => {
 
         <TabsContent value="list">
           <div className="text-xl font-bold mb-4">Trader List:</div>
-          <div className="flex flex-col gap-4">
-            {reverse(sortBy(traders, 'roi'))?.map((item) => (
-              <CopyTraderItem
-                key={item}
-                item={item}
-                callback={onExecuteTrade}
-              />
-            ))}
+          <div className="max-h-[600px] overflow-y-scroll">
+            <div className="grid grid-cols-2 gap-4">
+              {!traders.length && <>Empty</>}
+              {reverse(sortBy(traders, 'roi'))?.map((item) => (
+                <CopyTraderItem
+                  key={item}
+                  item={item}
+                  callback={onExecuteTrade}
+                />
+              ))}
+            </div>
           </div>
         </TabsContent>
         <TabsContent value="history">
@@ -158,6 +170,7 @@ const CopyTrade = () => {
 const TradingHistoryItem = ({ item }: { item: any }) => {
   return (
     <div className="border-2 border-white/40 bg-gradient-to-b from-yellow-500/20 to-black/40 rounded-lg shadow-lg w-full p-2 px-4">
+      <div className="text-xs mb-2">{String(item?.time)}</div>
       <div className="flex w-full justify-between items-center">
         <div className="flex items-center gap-2">
           <img src={get(item, 'tokenIn.logo')} alt="" className="w-8" />
@@ -198,13 +211,18 @@ const TradingHistoryItem = ({ item }: { item: any }) => {
 };
 
 const TradingHistory = ({ tradingHistories }: { tradingHistories: any[] }) => {
+  if (!tradingHistories.length) {
+    return <>Empty</>;
+  }
   return (
     <>
-      <div className="text-xl font-bold mb-4">Trader List:</div>
-      <div className="flex flex-col gap-4">
-        {tradingHistories.map((item, index) => (
-          <TradingHistoryItem key={index} item={item} />
-        ))}
+      <div className="text-xl font-bold mb-4">History:</div>
+      <div className="max-h-[600px] overflow-y-scroll">
+        <div className="flex flex-col gap-4">
+          {tradingHistories.map((item, index) => (
+            <TradingHistoryItem key={index} item={item} />
+          ))}
+        </div>
       </div>
     </>
   );

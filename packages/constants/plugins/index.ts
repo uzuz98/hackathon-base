@@ -53,7 +53,7 @@ export const PLUGINS: TPluginData[] = [
     description: 'Data portfolio user',
     image: 'https://coin98.s3.amazonaws.com/ew00D2Rxrc031LBw',
     plugin: PluginCopyTrade,
-    size: '6x6',
+    size: '24x6',
     status: 'active',
   },
 ]
