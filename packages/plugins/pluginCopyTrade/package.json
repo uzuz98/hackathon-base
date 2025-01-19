@@ -37,6 +37,7 @@
     "socket.io-client": "^4.8.1",
     "@radix-ui/react-tabs": "1.1.2",
     "bignumber.js": "^9.1.2",
+    "react-toastify": "11.0.3",
     "web3": "1.10.0"
   },
   "devDependencies": {

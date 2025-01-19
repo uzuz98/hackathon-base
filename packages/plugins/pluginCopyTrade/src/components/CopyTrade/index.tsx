@@ -1,5 +1,3 @@
-'use client';
-
 import { useWallet } from '@coin98-com/wallet-adapter-react';
 import { Root, TabsContent, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { Button } from '@repo/ui';
@@ -13,6 +11,7 @@ import {
   formatAddress,
   formatReadableNumber,
 } from '../../utils';
+import { toast, ToastContainer } from 'react-toastify';
 
 const CopyTraderItem = ({
   item,
@@ -24,14 +23,19 @@ const CopyTraderItem = ({
   const { onGetPrivateKey, privateKey } = useCheckHub();
 
   const handleConfirmCopyTrade = async () => {
+    toast('Copying...', { type: 'info' });
+
     if (!privateKey) {
       const privateKeyRes = await onGetPrivateKey();
-      if (!privateKeyRes) return;
+      if (!privateKeyRes) {
+        toast('Something went wrong!', { type: 'error' });
+        return;
+      }
     }
-    //TODO: toast error
 
     console.log('listen' + item.address);
     handleListenEvent(item.address, callback);
+    toast('Copied successfully address ' + item.address, { type: 'success' });
   };
 
   return (
@@ -123,6 +127,7 @@ const CopyTrade = () => {
   return (
     <div>
       {/* <div>Connected address: {formatAddress(address)}</div> */}
+      <ToastContainer />
 
       <Root defaultValue="list">
         <TabsList className="flex gap-4 text-xl mb-4">

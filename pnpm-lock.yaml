@@ -99,10 +99,10 @@ importers:
     dependencies:
       '@coin98-com/wallet-adapter-coin98':
         specifier: ^0.1.36
-        version: 0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.59.1(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+        version: 0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       '@coin98-com/wallet-adapter-ramper':
         specifier: ^0.1.36
-        version: 0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.59.1(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+        version: 0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       '@coin98-com/wallet-adapter-react':
         specifier: ^0.1.36
         version: 0.1.37(@solana/wallet-adapter-base@0.9.23(@solana/web3.js@1.98.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@solana/web3.js@1.98.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react@18.3.1)
@@ -414,7 +414,7 @@ importers:
     dependencies:
       '@coin98-com/wallet-adapter-coin98':
         specifier: ^0.1.36
-        version: 0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+        version: 0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.59.1(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       '@coin98-com/wallet-adapter-react':
         specifier: ^0.1.36
         version: 0.1.37(@solana/wallet-adapter-base@0.9.23(@solana/web3.js@1.98.0(bufferutil@4.0.9)(utf-8-validate@5.0.10)))(@solana/web3.js@1.98.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))(react@18.3.1)
@@ -448,6 +448,9 @@ importers:
       lodash:
         specifier: ^4.4.2
         version: 4.17.21
+      react-toastify:
+        specifier: 11.0.3
+        version: 11.0.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       socket.io-client:
         specifier: ^4.8.1
         version: 4.8.1(bufferutil@4.0.9)(utf-8-validate@5.0.10)
@@ -7286,6 +7289,12 @@ packages:
       '@types/react':
         optional: true
 
+  react-toastify@11.0.3:
+    resolution: {integrity: sha512-cbPtHJPfc0sGqVwozBwaTrTu1ogB9+BLLjd4dDXd863qYLj7DGrQ2sg5RAChjFUB4yc3w8iXOtWcJqPK/6xqRQ==, tarball: https://registry.npmjs.org/react-toastify/-/react-toastify-11.0.3.tgz}
+    peerDependencies:
+      react: ^18 || ^19
+      react-dom: ^18 || ^19
+
   react@18.3.1:
     resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==, tarball: https://registry.npmjs.org/react/-/react-18.3.1.tgz}
     engines: {node: '>=0.10.0'}
@@ -10321,9 +10330,9 @@ snapshots:
       - uploadthing
       - utf-8-validate
 
-  '@coin98-com/wallet-adapter-ramper-ethereum@0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.59.1(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-ramper-ethereum@0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)':
     dependencies:
-      '@coin98-com/wallet-adapter-base': 0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.59.1(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-base': 0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
       web3-types: 1.10.0
     transitivePeerDependencies:
       - '@azure/app-configuration'
@@ -10353,10 +10362,10 @@ snapshots:
       - uploadthing
       - utf-8-validate
 
-  '@coin98-com/wallet-adapter-ramper@0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.59.1(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)':
+  '@coin98-com/wallet-adapter-ramper@0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)':
     dependencies:
-      '@coin98-com/wallet-adapter-base': 0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.59.1(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
-      '@coin98-com/wallet-adapter-ramper-ethereum': 0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.59.1(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-base': 0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
+      '@coin98-com/wallet-adapter-ramper-ethereum': 0.1.37(@polkadot/api@15.3.1(bufferutil@4.0.9)(utf-8-validate@5.0.10))(@ton/core@0.56.3(@ton/crypto@3.3.0))(@ton/crypto@3.3.0)(bufferutil@4.0.9)(utf-8-validate@5.0.10)
     transitivePeerDependencies:
       - '@azure/app-configuration'
       - '@azure/cosmos'
@@ -17892,6 +17901,12 @@ snapshots:
       tslib: 2.8.1
     optionalDependencies:
       '@types/react': 18.3.18
+
+  react-toastify@11.0.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      clsx: 2.1.1
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   react@18.3.1:
     dependencies:
