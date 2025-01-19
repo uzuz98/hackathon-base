@@ -53,8 +53,7 @@ io.on('connection', (socket: Socket) => {
 
 // Serve the homepage route
 app.get('/ping', (req, res) => {
-  const result = decodeInput(KYBER_ABI, '')
-  console.log('🚀 ~ file: index.ts:54 ~ result:', result)
+  // decodeInput(KYBER_ABI, '')
   res.send('Hello, World!')
 })
 

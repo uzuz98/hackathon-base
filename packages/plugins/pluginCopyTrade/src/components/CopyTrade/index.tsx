@@ -26,7 +26,6 @@ const CopyTraderItem = ({
   callback: (data: any) => void;
   onClick: (data: any) => void;
 }) => {
-  console.log('🚀 ~ disabled:', disabled);
   const { onGetPrivateKey, privateKey } = useCheckHub();
 
   const handleConfirmCopyTrade = async () => {
@@ -40,7 +39,6 @@ const CopyTraderItem = ({
       }
     }
 
-    console.log('listen' + item.address);
     handleListenEvent(item.address, callback);
     onClick(item.address);
 
@@ -99,9 +97,6 @@ const CopyTraderItem = ({
 const CopyTrade = () => {
   const { address } = useWallet();
   const [copyingAddress, setCopyingAddress] = useState('');
-  console.log('🚀 ~ CopyTrade ~ copyingAddress:', copyingAddress);
-
-  console.log('🚀 ~ CopyTrade ~ address:', address);
   const { privateKey } = useCheckHub();
   const [traders, setTraders] = React.useState<any[]>([]);
   const [tradingHistories, setTradingHistories] = React.useState<any[]>([]);

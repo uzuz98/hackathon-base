@@ -46,7 +46,7 @@ export const CheckHubProvider = ({ children }: ICheckHubProps) => {
     //      const privateKey = await onGetPrivateKey(address);
     // setPrivateKey(privateKey);
     if (!response) {
-      const response = await (provider as any).request({
+      await (provider as any).request({
         method: 'wallet_addHubs',
         params: [
           {
@@ -56,30 +56,23 @@ export const CheckHubProvider = ({ children }: ICheckHubProps) => {
           },
         ],
       });
-      console.log('🚀 ~ response ~ response:', response);
       // await onSignMessage(address);
     }
   }, [address]);
 
   const onGetPrivateKey = useCallback(async () => {
     try {
-      console.log('🚀 ~ onGetPrivateKey ~ address:', address);
       const response = await (provider as any).request({
         method: 'wallet_getPrivateKey',
         params: [address],
       });
-      console.log('🚀 ~ response ~ response:', address, response);
 
       setPrivateKey(response);
       return response;
-    } catch (e) {
-      console.log('🚀 ~ onGetPrivateKey ~ e', e);
-    }
+    } catch (e) {}
   }, [address]);
 
   useEffect(() => {
-    console.log('🚀 ~ useEffect ~ address:', address);
-
     if (!address) return;
     checkHubs().then((data) => console.log(data));
   }, [address]);

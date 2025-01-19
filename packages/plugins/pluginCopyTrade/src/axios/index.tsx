@@ -35,7 +35,6 @@ const createApiMethod =
 
     try {
       const response = await api[methodRequest](url, payload);
-      console.log('🚀 ~ payload:', payload);
 
       return {
         data: get(response, 'data', null),

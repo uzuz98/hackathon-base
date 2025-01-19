@@ -128,7 +128,6 @@ export const decodeInput = (abi: any[], data: string) => {
   )
 
   if (!methodAbi) {
-    console.log('No matching function signature found in ABI.')
     return null
   }
 
@@ -148,7 +147,6 @@ export const getDataFromRawData = async (transaction: any) => {
       const result = decodeInput(KYBER_ABI, data)
 
       if (!result) {
-        console.log('No matching function signature found in ABI.')
         return null
       }
 
@@ -195,11 +193,9 @@ export const getDataFromRawData = async (transaction: any) => {
         timestamp: transaction.timeStamp,
       }
     } catch (error: any) {
-      console.log('Error decoding input data:', error.message)
       return null
     }
   } catch (error: any) {
-    console.log('Error decoding input data:', error.message)
     return null
   }
 }
@@ -302,7 +298,6 @@ export const getData = async (
 } | null> => {
   try {
     const dataRaw = await parseRawData(time, address)
-    console.log('🚀 ~ file: rawTx.ts:301 ~ dataRaw:', dataRaw)
     // let unrealizedProfit = 0
     let realizedProfit = 0
     let tempDataRaw = dataRaw || []

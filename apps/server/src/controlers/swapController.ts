@@ -67,8 +67,6 @@ export async function getSwapRouteV1({ tokenIn, tokenOut, amountIn }: IGetSwapRo
 
     const { data } = await axios.get(AggregatorDomain + targetPath, targetPathConfig)
 
-    // console.log('[V1] GET Response:')
-    // console.log(data)
     return data.data
   } catch (error) {
     console.log(error)
@@ -98,7 +96,6 @@ export async function getDataToSwapV1({ senderAddress, ...swapRoute }: IGetDataT
     }
 
     // Call the API with axios to handle async calls
-    console.log('\nCalling [V1] Post Swap Route For Encoded Data...')
     const { data } = await axios.post(AggregatorDomain + targetPath, requestBody)
 
     return data.data
@@ -116,8 +113,6 @@ export const getDataToSwap = async (req: Request, res: Response): Promise<void> 
       return
     }
     const { tokenInMetaData, tokenOutMetaData } = await getBaseTokenInfo(tokenIn.address, tokenOut.address)
-    console.log('🚀 ~ getDataToSwap ~ tokenOutMetaData:', tokenOutMetaData)
-    console.log('🚀 ~ getDataToSwap ~ tokenInMetaData:', tokenInMetaData)
 
     tokenIn.decimals = tokenInMetaData.decimals
     tokenOut.decimals = tokenOutMetaData.decimals

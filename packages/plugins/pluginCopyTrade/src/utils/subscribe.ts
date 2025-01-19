@@ -19,9 +19,7 @@ const subscribe = (socket: Socket) => {
       console.log('🩲 🩲 => .on => subscriptionId:', subscriptionId)
     })
     .on('data', async (data: any) => {
-      console.log('🩲 🩲 => .on => data:', data)
       const rawTxsData = await client.eth.getTransaction(data.transactionHash)
-      console.log('🩲 🩲 => .on => data:', rawTxsData.input)
 
       const dataTx = await getDataFromRawData(rawTxsData)
 
