@@ -113,7 +113,6 @@ const CopyTrade = () => {
   // }
 
   const onExecuteTrade = async (event: any) => {
-    console.log('🚀 ~ onExecuteTrade ~ event:', event);
     BaseAPI({
       method: 'POST',
       url: '/swap',
@@ -133,6 +132,7 @@ const CopyTrade = () => {
         {
           ...(res.data as any),
           time: dayjs().format('DD-MM-YYYY HH:mm:ss'),
+          from: event?.address || ''
         },
         ...prev,
       ]);
@@ -200,9 +200,10 @@ const TradingHistoryItem = ({ item }: { item: any }) => {
   return (
     <div className="border-2 border-white/40 bg-gradient-to-b from-yellow-500/20 to-black/40 rounded-lg shadow-lg w-full p-2 px-4">
       <div className="text-xs mb-2">{String(item?.time)}</div>
+      <div className="text-xs mb-2">{String(item?.from)}</div>
       <div className="flex w-full justify-between items-center">
         <div className="flex items-center gap-2">
-          <img src={get(item, 'tokenIn.logo')} alt="" className="w-8" />
+          <img src={get(item, 'tokenIn.logo')} alt="" className="w-8 rounded-full" />
           <div>
             <div className="font-bold -mb-1">
               {formatReadableNumber(
@@ -219,7 +220,7 @@ const TradingHistoryItem = ({ item }: { item: any }) => {
         </div>
         <div className="text-xl opacity-60">➜</div>
         <div className="flex items-center gap-2">
-          <img src={get(item, 'tokenOut.logo')} alt="" className="w-8" />
+          <img src={get(item, 'tokenOut.logo')} alt="" className="w-8 rounded-full" />
           <div>
             <div className="font-bold -mb-1">
               {formatReadableNumber(
